@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/antd/3.8.0/antd.min.css">
+    <link rel="stylesheet" href="/css/ant-design-pro.min.css">
+    <link rel="stylesheet" href="/css/app.css">
+    <title>HCC Research</title>
+    <script>
+        let hitConfig = {
+            "initialTimerValue": 800000,
+            "assignmentId": "fooAssignment",
+            "workerId": "testWorker",
+            "hitId": "testHIT",
+            "turkSubmitTo": "http://localhost:3449/finished.html",
+            "conceptRepresentation": "imageAndDescription",
+            "sort-by": "confidence",
+            "autoAnnotation": "none"
+        };
+
+        let annotatorConfig = {
+            "texts": [{
+                "id": "b673e422f163a7645a4b5edb01aa302f",
+                "text": "A window where you can control how much light gets in by swiping."
+            }, {
+                "id": "8c5e85472e2c730de9625212496d3fa3",
+                "text": "A portable piano"
+            }],
+            "annotatorId": 1700
+        };
+    </script>
+</head>
+<body>
+<noscript>
+    You need to enable JavaScript to run this hit.
+</noscript>
+<div id="app"></div>
+<script src="cljs-out/dev-main.js" type="text/javascript"></script>
+</body>
+</html>
