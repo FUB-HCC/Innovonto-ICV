@@ -1,3 +1,5 @@
 /resources
 /target
 pom.xml
+/.idea
+*.iml
