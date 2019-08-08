@@ -1,0 +1,499 @@
+{
+  "annotation_candidates": [
+    {
+      "confidence": 0.04280936454849498,
+      "description": "A tactical role-playing game (abbreviated as TRPG) is a genre of video game which incorporates elements of traditional role-playing video games and emphasizes tactical rather than high-level strategic gameplay. In Japan these games are known as \"Simulation RPGs\" (シミュレーションRPG, abbreviated as SRPG).",
+      "label": "Tactical role-playing game",
+      "offset": 101,
+      "resource": "http://dbpedia.org/resource/Tactical_role-playing_game",
+      "text": "RPGs",
+      "thumbnail": null,
+      "token_span": {
+        "end": 22,
+        "start": 22
+      }
+    },
+    {
+      "confidence": 0.0882943143812709,
+      "description": "Role-playing (Roleplay) refers to the changing of one's behaviour to assume a role, either unconsciously to fill a social role, or consciously to act out an adopted role. While the Oxford English Dictionary offers a definition of role-playing as \"the changing of one's behaviour to fulfill a social role\", in the field of psychology, the term is used more loosely in four senses: \n*  To refer to the playing of roles generally such as in a theatre, or educational setting; \n*  To refer to taking a role of an existing character or person and acting it out with a partner taking someone else's role, often involving different genres of practice; \n*  To refer to a wide range of games including role-playing video game (RPG), play-by-mail games and more; \n*  To refer specifically to role-playing games.",
+      "label": "Role-playing",
+      "offset": 101,
+      "resource": "http://dbpedia.org/resource/Role-playing",
+      "text": "RPGs",
+      "thumbnail": null,
+      "token_span": {
+        "end": 22,
+        "start": 22
+      }
+    },
+    {
+      "confidence": 0.0903010033444816,
+      "description": "A tabletop role-playing game (or pen-and-paper role-playing game) is a form of role-playing game (RPG) in which the participants describe their characters' actions through speech. Participants determine the actions of their characters based on their characterization, and the actions succeed or fail according to a formal system of rules and guidelines. Within the rules, players have the freedom to improvise; their choices shape the direction and outcome of the game. Unlike other types of role-playing game, tabletop RPGs are often conducted like radio drama: only the spoken component of a role is acted. This acting is not always literal, and players do not always speak exclusively in-character. Instead, players act out their role by deciding and describing what actions their characters will take within the rules of the game. In most games, a specially designated player called the game master (GM) also known as DM (dungeon master) creates a setting in which each player plays the role of a single character. The GM describes the game world and its inhabitants; the other players describe the intended actions of their characters, and the GM describes the outcomes. Some outcomes are determined by the game system, and some are chosen by the GM. The terms pen-and-paper and tabletop are generally only used to distinguish this format of RPG from other formats, since neither pen and paper nor a table are strictly necessary.",
+      "label": "Tabletop role-playing game",
+      "offset": 101,
+      "resource": "http://dbpedia.org/resource/Tabletop_role-playing_game",
+      "text": "RPGs",
+      "thumbnail": "http://commons.wikimedia.org/wiki/Special:FilePath/RPG-2009-Berlin-2.jpg?width=300",
+      "token_span": {
+        "end": 22,
+        "start": 22
+      }
+    },
+    {
+      "confidence": 0.45752508361204014,
+      "description": "A role-playing game (RPG and sometimes roleplaying game) is a game in which players assume the roles of characters in a fictional setting. Players take responsibility for acting out these roles within a narrative, either through literal acting or through a process of structured decision-making or character development. Actions taken within many games succeed or fail according to a formal system of rules and guidelines. There are several forms of RPG. The original form, sometimes called the tabletop RPG, is conducted through discussion, whereas in live action role-playing games (LARP) players physically perform their characters actions. In both of these forms, an arranger called a game master (GM) usually decides on the rules and setting to be used, acting as referee, while each of the other players plays the role of a single character. Several varieties of RPG also exist in electronic media, such as multi-player text-based MUDs and their graphics-based successors, massively multiplayer online role-playing games (MMORPGs). Role-playing games also include single-player role-playing video games in which players control a character or team who undertake quests, and may include capabilities that advance using statistical mechanics. These games often share settings and rules with tabletop RPGs, but emphasize character advancement more than collaborative storytelling. Despite this variety of forms, some game forms such as trading card games and wargames that are related to role-playing games may not be included. Role-playing activity may sometimes be present in such games, but it is not the primary focus. The term is also sometimes used to describe roleplay simulation games and exercises used in teaching, training, and academic research.",
+      "label": "Role-playing game",
+      "offset": 101,
+      "resource": "http://dbpedia.org/resource/Role-playing_game",
+      "text": "RPGs",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/2/2d/Dados_4_a_20_caras_trans.png",
+      "token_span": {
+        "end": 22,
+        "start": 22
+      }
+    },
+    {
+      "confidence": 0.6101694915254238,
+      "description": "Paper is a thin material produced by pressing together moist fibres of cellulose pulp derived from wood, rags or grasses, and drying them into flexible sheets.It is a versatile material with many uses, including writing, printing, packaging, cleaning, and a number of industrial and construction processes. The pulp papermaking process is said to have been developed in China during the early 2nd century AD, possibly as early as the year 105 A.D., by the Han court eunuch Cai Lun, although the earliest archaeological fragments of paper derive from the 2nd century BC in China.The modern pulp and paper industry is global, with China leading its production and the United States right behind it.",
+      "label": "Paper",
+      "offset": 95,
+      "resource": "http://dbpedia.org/resource/Paper",
+      "text": "paper",
+      "thumbnail": "http://commons.wikimedia.org/wiki/Special:FilePath/Papier_-_various_papers_in_day.jpg?width=300",
+      "token_span": {
+        "end": 21,
+        "start": 21
+      }
+    },
+    {
+      "confidence": 0.07532956685499058,
+      "description": "In literature the term generally refers to a character established by an author, one in whose voice all or part of a narrative takes place. Poets such as Robert Browning, Ezra Pound, and T. S. Eliot are strongly associated with such narrative voices, as is the writer Luigi Pirandello. These writers understood the term slightly differently and derived its use and meaning from different traditions. Examples of Eliot's personae were Prufrock and Sweeney. Pound developed such characters as Cino, Bertran de Born, Propertius, and  Mauberley in response to figures in Browning’s dramatic monologues. Whereas Eliot used \"masks\" to distance himself from aspects of modern life which he found degrading and repulsive, Pound's personae were often poets and could be considered in good part alter-egos. For Pound, the personae were a way of working through a specific poetic problem. In this sense, the persona is a transparent mask, wearing the traits of two poets and responding to two situations, old and new, which are similar and overlapping. In literary analysis, any narrative voice that speaks in the first person and appears to define a particular character is often referred to as a persona. It is contrasted with a third-person narrative voice, generally taken to be more objective and impersonal. There are borderline cases, such as the “we” that occurs late in Edwin Arlington Robinson’s poem “Eros Turannos” and functions something like a chorus in a Greek tragedy, but in general any identifiable narrator whose point of view or manner of speaking clearly distinguishes him or her from the author is considered a literary persona.",
+      "label": "Persona",
+      "offset": 95,
+      "resource": "http://dbpedia.org/resource/Persona",
+      "text": "paper",
+      "thumbnail": "http://commons.wikimedia.org/wiki/Special:FilePath/Guatemala-Mask.jpg?width=300",
+      "token_span": {
+        "end": 21,
+        "start": 21
+      }
+    },
+    {
+      "confidence": 0.060263653483992465,
+      "description": "A newspaper is a serial publication containing news, other informative articles (), and advertising. A newspaper is usually but not exclusively printed on relatively inexpensive, low-grade paper such as newsprint. The news organizations that publish newspapers are themselves often metonymically called newspapers. Most newspapers are now published online as well as in print. The online versions are called online newspapers or news sites. Newspapers are typically published daily or weekly. News magazines are also weekly, but they have a magazine format. General-interest newspapers typically publish news articles and feature articles on national and international news as well as local news. The news includes political events and personalities, business and finance, crime, severe weather, and natural disasters; health and medicine, science, and technology; sports; and entertainment, society, food and cooking, clothing and home fashion, and the arts. Typically the paper is divided into sections for each of those major groupings (labeled A, B, C, and so on, with pagination prefixes yielding page numbers A1-A20, B1-B20, C1-C20, and so on). Most traditional papers also feature an editorial page containing editorials written by an editor, op-eds written by guest writers, and columns that express the personal opinions of columnists, usually offering analysis and synthesis that attempts to translate the raw data of the news into information telling the reader \"what it all means\" and persuading them to concur. A wide variety of material has been published in newspapers. Besides the aforementioned news and opinions, they include weather forecasts; criticism and reviews of the arts (including literature, film, television, theater, fine arts, and architecture) and of local services such as restaurants; obituaries; entertainment features such as crosswords, horoscopes, editorial cartoons, gag cartoons, and comic strips; advice, food, and other columns; and radio and television listings (program schedules). Most newspapers are businesses, and they pay their expenses (such as journalists' wages, printing costs, and distribution costs) with a mixture of subscription revenue, newsstand sales, and advertising revenue (other businesses or individuals pay to place advertisements in the pages, including display ads, classified ads, and their online equivalents). Some newspapers are government-run or at least government-funded; their reliance on advertising revenue and on profitability is less critical to their survival. The editorial independence of a newspaper is thus always subject to the interests of someone, whether owners, advertisers, or a government. Some newspapers with high editorial independence, high journalism quality, and large circulation are viewed as newspapers of record. Many newspapers, besides employing journalists on their own payrolls, also subscribe to news agencies (wire services) (such as the Associated Press, Reuters, or Agence France-Presse), which employ journalists to find, assemble, and report the news, then sell the content to the various newspapers. This is a way to avoid duplicating the expense of reporting. Circa 2005, there were approximately 6,580 daily newspaper titles in the world selling 395 million print copies a day (in the U.S., 1,450 titles selling 55 million copies). The late 2000s–early 2010s global recession, combined with the rapid growth of free web-based alternatives, has helped cause a decline in advertising and circulation, as many papers had to retrench operations to increase profitability. The decline in advertising revenues affected both the print and online media as well as all other mediums; print advertising was once lucrative but has greatly declined, and the prices of online advertising are often lower than those of their print precursors. Besides remodeling advertising, the internet (especially the web) has also challenged the business models of the print-only era by democratizing and crowdsourcing both publishing in general (sharing information with others) and, more specifically, journalism (the work of finding, assembling, and reporting the news). In addition, the rise of news aggregators, which bundle linked articles from many online newspapers and other sources, influences the flow of web traffic. Increasing paywalling of online newspapers may be counteracting those effects.",
+      "label": "Newspaper",
+      "offset": 95,
+      "resource": "http://dbpedia.org/resource/Newspaper",
+      "text": "paper",
+      "thumbnail": "http://commons.wikimedia.org/wiki/Special:FilePath/NYTimes-Page1-11-11-1918.jpg?width=300",
+      "token_span": {
+        "end": 21,
+        "start": 21
+      }
+    },
+    {
+      "confidence": 0.44970414201183434,
+      "description": "A tabletop role-playing game (or pen-and-paper role-playing game) is a form of role-playing game (RPG) in which the participants describe their characters' actions through speech. Participants determine the actions of their characters based on their characterization, and the actions succeed or fail according to a formal system of rules and guidelines. Within the rules, players have the freedom to improvise; their choices shape the direction and outcome of the game. Unlike other types of role-playing game, tabletop RPGs are often conducted like radio drama: only the spoken component of a role is acted. This acting is not always literal, and players do not always speak exclusively in-character. Instead, players act out their role by deciding and describing what actions their characters will take within the rules of the game. In most games, a specially designated player called the game master (GM) also known as DM (dungeon master) creates a setting in which each player plays the role of a single character. The GM describes the game world and its inhabitants; the other players describe the intended actions of their characters, and the GM describes the outcomes. Some outcomes are determined by the game system, and some are chosen by the GM. The terms pen-and-paper and tabletop are generally only used to distinguish this format of RPG from other formats, since neither pen and paper nor a table are strictly necessary.",
+      "label": "Tabletop role-playing game",
+      "offset": 87,
+      "resource": "http://dbpedia.org/resource/Tabletop_role-playing_game",
+      "text": "pen and paper",
+      "thumbnail": "http://commons.wikimedia.org/wiki/Special:FilePath/RPG-2009-Berlin-2.jpg?width=300",
+      "token_span": {
+        "end": 21,
+        "start": 19
+      }
+    },
+    {
+      "confidence": 0.5502958579881657,
+      "description": "Paper-and-pencil games are games that can be played solely with paper and pencil (or other writing implement), usually without erasing. In some board games, including some abstract strategy games like Gomoku, a piece once played will not be moved on the board or removed from the board. Such games can be played either as board games or as paper-and-pencil games, while many other paper-and-pencil games cannot be played without writing utensils. The term is also used to distinguish role-playing games from role-playing video games, although role-playing games do not necessarily use either pencils or paper. Examples of paper-and-pencil games are Tic-tac-toe, Sprouts, and Dots and Boxes. Other games include: Hangman, Connect 5, M.A.S.H., Boggle, Battleships and Paper Soccer.",
+      "label": "Paper-and-pencil game",
+      "offset": 87,
+      "resource": "http://dbpedia.org/resource/Paper-and-pencil_game",
+      "text": "pen and paper",
+      "thumbnail": null,
+      "token_span": {
+        "end": 21,
+        "start": 19
+      }
+    },
+    {
+      "confidence": 0.14354066985645933,
+      "description": "In chess, a pin is a situation brought on by an attacking piece in which a defending piece cannot move without exposing a more valuable defending piece on its other side to capture by the attacking piece. \"To pin\" refers to the action of the attacking piece inducing the pin, and the defending piece so restricted is described as pinned. Only pieces that can move an indefinite number of squares in a horizontal, vertical, or diagonal line, i.e., bishops, rooks and queens, can pin opposing pieces. Kings, knights, and pawns cannot pin. Any piece may be pinned except the king, as the king must be immediately removed from check under all circumstances.",
+      "label": "Pin (chess)",
+      "offset": 87,
+      "resource": "http://dbpedia.org/resource/Pin_(chess)",
+      "text": "pen",
+      "thumbnail": null,
+      "token_span": {
+        "end": 19,
+        "start": 19
+      }
+    },
+    {
+      "confidence": 0.028708133971291867,
+      "description": "A fountain pen is a nib pen that, unlike its predecessor, the dip pen, contains an internal reservoir of liquid ink. The pen draws ink from the reservoir through a feed to the nib and deposits it on paper via a combination of gravity and capillary action. Filling the reservoir with ink may be achieved manually, via the use of a Pasteur pipette (eyedropper) or syringe, or via an internal filling mechanism which creates suction (for example, through a piston mechanism) to transfer ink directly through the nib into the reservoir. Some pens employ removable reservoirs in the form of pre-filled ink cartridges.",
+      "label": "Fountain pen",
+      "offset": 87,
+      "resource": "http://dbpedia.org/resource/Fountain_pen",
+      "text": "pen",
+      "thumbnail": "http://commons.wikimedia.org/wiki/Special:FilePath/Lamy_Nexx_M%2C_Lamy_Vista%2C_Gama_Supreme.png?width=300",
+      "token_span": {
+        "end": 19,
+        "start": 19
+      }
+    },
+    {
+      "confidence": 0.28708133971291866,
+      "description": "(For other uses, see Pen (disambiguation).) A pen (Latin: penna, feather) is a writing implement used to apply ink to a surface, such as paper, for writing or drawing. Historically, reed pens, quill pens, and dip pens were used, with a nib dipped in ink. Ruling pens allow precise adjustment of line width, and still find a few specialized uses, but technical pens such as the Rapidograph are more commonly used. Modern types also include ballpoint, rollerball, fountain, and felt or ceramic tip pens.",
+      "label": "Pen",
+      "offset": 87,
+      "resource": "http://dbpedia.org/resource/Pen",
+      "text": "pen",
+      "thumbnail": "http://commons.wikimedia.org/wiki/Special:FilePath/Carandache_Ecridor.jpg?width=300",
+      "token_span": {
+        "end": 19,
+        "start": 19
+      }
+    },
+    {
+      "confidence": 0.019138755980861243,
+      "description": "A playpen is a piece of furniture in which an infant or young toddler (typically those less than 35\" tall and 30 lbs) is placed to prevent self-harm when her/his parent or guardian is occupied or away. The earliest use of the word \"playpen\" cited in the Oxford English Dictionary is 1902.",
+      "label": "Playpen",
+      "offset": 87,
+      "resource": "http://dbpedia.org/resource/Playpen",
+      "text": "pen",
+      "thumbnail": "http://commons.wikimedia.org/wiki/Special:FilePath/Laufgitter.png?width=300",
+      "token_span": {
+        "end": 19,
+        "start": 19
+      }
+    },
+    {
+      "confidence": 0.05741626794258373,
+      "description": "A penalty kick (often abbreviated to penalty) is a method of restarting play in association football, taken from 11 meters (approximately 12 yards) out from the goal, on the penalty mark. Penalty kicks are performed during normal play. They are awarded when a foul that is punishable by a direct free kick is committed within the offending player's own penalty area. Similar kicks are made in a penalty shootout in some tournaments to determine which team is victorious after a drawn match; these are governed by slightly different rules. In practice, penalties are converted to goals more often than not, even against world class goalkeepers. This means that penalty awards are often decisive, especially in low-scoring games. Missed penalty kicks are often demoralising to players because it is an easy opportunity to score.",
+      "label": "Penalty kick",
+      "offset": 87,
+      "resource": "http://dbpedia.org/resource/Penalty_kick",
+      "text": "pen",
+      "thumbnail": "http://commons.wikimedia.org/wiki/Special:FilePath/Chicago_Fire_v._Club_Am%C3%A9rica_2013_38.jpg?width=300",
+      "token_span": {
+        "end": 19,
+        "start": 19
+      }
+    },
+    {
+      "confidence": 0.215311004784689,
+      "description": "A USB flash drive, also variously known as a USB drive, USB stick, thumb drive, pen drive, flash-disk, or USB memory,  is a data storage device that includes flash memory with an integrated USB interface. USB flash drives are typically removable and rewritable, and physically much smaller than an optical disc. Most weigh less than 30 grams (1.1 oz). Since first appearing on the market in late 2000, as with virtually all computer memory devices, storage capacities have risen while prices have dropped. As of March 2016, flash drives with anywhere from 8 to 256 GB are frequently sold, and less frequently 512 GB and 1 TB units. Storage capacities as large as 2 TB are planned, with steady improvements in size and price per capacity expected. Some allow up to 100,000 write/erase cycles, depending on the exact type of memory chip used, and have a 10-year shelf storage time. USB flash drives are often used for the same purposes for which floppy disks or CDs were once used, i.e., for storage, data back-up and transfer of computer files. They are smaller, faster, have thousands of times more capacity, and are more durable and reliable because they have no moving parts. Additionally, they are immune to electromagnetic interference (unlike floppy disks), and are unharmed by surface scratches (unlike CDs). Until about 2005, most desktop and laptop computers were supplied with floppy disk drives in addition to USB ports, but floppy disk drives have become obsolete after widespread adoption of USB ports and the larger USB drive capacity compared to the 1.44 MB 3.5-inch floppy disk. USB flash drives use the USB mass storage device class standard, supported natively by modern operating systems such as Windows, Linux, OS X and other Unix-like systems, as well as many BIOS boot ROMs. USB drives with USB 2.0 support can store more data and transfer faster than much larger optical disc drives like CD-RW or DVD-RW drives and can be read by many other systems such as the Xbox 360, PlayStation 3, DVD players, automobile entertainment systems, and in a number of handheld devices such as smartphones and tablet computers, though the electronically similar SD card is better suited for those devices. A flash drive consists of a small printed circuit board carrying the circuit elements and a USB connector, insulated electrically and protected inside a plastic, metal, or rubberized case which can be carried in a pocket or on a key chain, for example. The USB connector may be protected by a removable cap or by retracting into the body of the drive, although it is not likely to be damaged if unprotected. Most flash drives use a standard type-A USB connection allowing connection with a port on a personal computer, but drives for other interfaces also exist. USB flash drives draw power from the computer via the USB connection. Some devices combine the functionality of a portable media player with USB flash storage; they require a battery only when used to play music on the go.",
+      "label": "USB flash drive",
+      "offset": 87,
+      "resource": "http://dbpedia.org/resource/USB_flash_drive",
+      "text": "pen",
+      "thumbnail": "http://commons.wikimedia.org/wiki/Special:FilePath/SanDisk_Cruzer_Micro.png?width=300",
+      "token_span": {
+        "end": 19,
+        "start": 19
+      }
+    },
+    {
+      "confidence": 0.1291866028708134,
+      "description": "A pine is any conifer in the genus Pinus, /ˈpiːnuːs/, of the family Pinaceae. Pinus is the sole genus in the subfamily Pinoideae. The Plant List compiled by the Royal Botanic Gardens, Kew and Missouri Botanical Garden accepts 126 species names of pines as current, together with 35 unresolved species and many more synonyms.",
+      "label": "Pine",
+      "offset": 87,
+      "resource": "http://dbpedia.org/resource/Pine",
+      "text": "pen",
+      "thumbnail": "http://commons.wikimedia.org/wiki/Special:FilePath/Pinus_densiflora_Kumgangsan.jpg?width=300",
+      "token_span": {
+        "end": 19,
+        "start": 19
+      }
+    },
+    {
+      "confidence": 0.028708133971291867,
+      "description": "Bread is a staple food prepared from a dough of flour and water, usually by baking. Throughout recorded history it has been popular around the world and is one of the oldest artificial foods, having been of importance since the dawn of agriculture. Proportions of types of flour and other ingredients vary widely, as do modes of preparation. As a result, types, shapes, sizes, and textures of breads differ around the world. Bread may be leavened by processes such as reliance on naturally occurring sourdough microbes, chemicals, industrially produced yeast, or high-pressure aeration. Some bread is cooked before it can leaven, including for traditional or religious reasons. Non-cereal ingredients such as fruits, nuts and fats may be included. Commercial bread commonly contains additives to improve flavor, texture, color, shelf life, and ease of manufacturing. Bread is served in various forms at any meal of the day. It is eaten as a snack, and used as an ingredient in other culinary preparations, such as sandwiches, and fried items coated in crumbs to prevent sticking. It forms the bland main component of bread pudding, as well as of stuffings designed to fill cavities or retain juices that otherwise might drip away. Bread has a social and emotional significance beyond its importance as food. It plays essential roles in religious rituals and secular culture. Its prominence in daily life is reflected in language, where it appears in proverbs, colloquial expressions (\"He stole the bread from my mouth\"), in prayer (\"Give us this day our daily bread\") and in the etymology of words, such as \"companion\" (from Latin com \"with\" + panis \"bread\").",
+      "label": "Bread",
+      "offset": 87,
+      "resource": "http://dbpedia.org/resource/Bread",
+      "text": "pen",
+      "thumbnail": "http://commons.wikimedia.org/wiki/Special:FilePath/Korb_mit_Brötchen.JPG?width=300",
+      "token_span": {
+        "end": 19,
+        "start": 19
+      }
+    },
+    {
+      "confidence": 0.27117696393625945,
+      "description": "A game is structured form of play, usually undertaken for enjoyment and sometimes used as an educational tool. Games are distinct from work, which is usually carried out for remuneration, and from art, which is more often an expression of aesthetic or ideological elements. However, the distinction is not clear-cut, and many games are also considered to be work (such as professional players of spectator sports or games) or art (such as jigsaw puzzles or games involving an artistic layout such as Mahjong, solitaire, or some video games). Key components of games are goals, rules, challenge, and interaction. Games generally involve mental or physical stimulation, and often both. Many games help develop practical skills, serve as a form of exercise, or otherwise perform an educational, simulational, or psychological role. Attested as early as 2600 BC, games are a universal part of human experience and present in all cultures. The Royal Game of Ur, Senet, and Mancala are some of the oldest known games.",
+      "label": "Game",
+      "offset": 78,
+      "resource": "http://dbpedia.org/resource/Game",
+      "text": "games",
+      "thumbnail": "http://commons.wikimedia.org/wiki/Special:FilePath/Tug-of-war.jpg?width=300",
+      "token_span": {
+        "end": 17,
+        "start": 17
+      }
+    },
+    {
+      "confidence": 0.30947775628626695,
+      "description": "A board game is a tabletop game that involves counters or pieces moved or placed on a pre-marked surface or \"board\", according to a set of rules. Some games are based on pure strategy, but many contain an element of chance; and some are purely chance, with no element of skill. Games usually have a goal that a player aims to achieve. Early board games represented a battle between two armies, and most modern board games are still based on defeating opposing players in terms of counters, winning position, or accrual of points. There are many varieties of board games. Their representation of real-life situations can range from having no inherent theme, like checkers, to having a specific theme and narrative, like Cluedo. Rules can range from the very simple, like Tic-tac-toe, to those describing a game universe in great detail, like Dungeons & Dragons – although most of the latter are role-playing games where the board is secondary to the game, serving to help visualize the game scenario. The time required to learn to play or master a game varies greatly from game to game, but is not necessarily correlated with the number or complexity of rules; games like chess or go possess relatively simple rulesets, but have great strategic depth.",
+      "label": "Board game",
+      "offset": 72,
+      "resource": "http://dbpedia.org/resource/Board_game",
+      "text": "board games",
+      "thumbnail": "http://commons.wikimedia.org/wiki/Special:FilePath/Flickr_-_Official_U.S._Navy_Imagery_-_Sailors_play_board_games_with_children_at_the_Cameron_Community_Ministries_during_Rochester_Navy_Week.jpg?width=300",
+      "token_span": {
+        "end": 17,
+        "start": 16
+      }
+    },
+    {
+      "confidence": 0.01355421686746988,
+      "description": "A whiteboard (also known by the terms markerboard, dry-erase board, wipe board, dry-wipe board, pen-board, and the misnomer greaseboard) is any glossy, usually white surface for nonpermanent markings. Whiteboards are analogous to blackboards, but with a smoother surface allowing rapid marking and erasing of markings on their surface. The popularity of whiteboards increased rapidly in the mid-1990s and they have become a fixture in many offices, meeting rooms, school classrooms, and other work environments. The term whiteboard is also used metaphorically to refer to features of computer software applications that simulate whiteboards. Such \"virtual whiteboards\" allow one or more people to write or draw images on a simulated canvas. This is a common feature of many virtual meeting, collaboration, and instant messaging applications. The term whiteboard is also used to refer to interactive whiteboards.",
+      "label": "Whiteboard",
+      "offset": 72,
+      "resource": "http://dbpedia.org/resource/Whiteboard",
+      "text": "board",
+      "thumbnail": "http://commons.wikimedia.org/wiki/Special:FilePath/Blank_whiteboard.JPG?width=300",
+      "token_span": {
+        "end": 16,
+        "start": 16
+      }
+    },
+    {
+      "confidence": 0.0030120481927710845,
+      "description": "The board-foot is a specialized unit of measure for the volume of lumber in the United States and Canada. It is the volume of a one-foot length of a board one foot wide and one inch thick. Board-foot can be abbreviated FBM (for \"foot, board measure\"), BDFT, or BF. Thousand board-feet can be abbreviated as MFBM, MBFT, or MBF. Similarly, million board-feet can be abbreviated as MMFBM, MMBFT, or MMBF. In Australia and New Zealand the term super foot or superficial foot was used to mean the same. One board-foot equals: \n*  1 ft × 1 ft × 1 in \n*  12 in × 12 in × 1 in \n*  30.48 cm × 30.48 cm × 2.54 cm \n*  144 in3 \n*  1⁄12 ft3 \n*  2360 cm3 \n*  2.360 liters \n*  0.002360 cubic meters or steres \n*  1/1980 Petrograd Standard of board Board foot is the unit of measure for rough lumber (before drying and planing with no adjustments) or planed/surfaced lumber. An example of planed lumber is softwood 2 × 4 lumber one would buy at a large lumber retailer. The 2 × 4 is actually only 1 1⁄2 in × 3 1⁄2 in (38 mm × 89 mm) but the dimensions for the lumber when purchased wholesale could still be represented as full 2 × 4 lumber, although the \"standard\" can vary between vendors. This means that nominal lumber includes air space around the physical board when calculating board feet in some situations, while the true measurement of \"board feet\" should be limited to the actual dimensions of the board. For planed lumber, board-feet refer to the nominal thickness and width of lumber, calculated in principle on its size before drying and planing. Actual length is used. See dimensional lumber for a full discussion of the relationship of actual and nominal dimensions. Briefly, for softwoods, to convert nominal to actual, subtract  1⁄4 inch for dimensions under 2 inches (51 mm); subtract  1⁄2 inch for dimensions under 8 inches (203 mm); and subtract  3⁄4 inch for larger measurements. The system is more complicated for hardwoods. An Essex table is a tabulation of the number of board feet in lumber of varying dimensions.",
+      "label": "Board foot",
+      "offset": 72,
+      "resource": "http://dbpedia.org/resource/Board_foot",
+      "text": "board",
+      "thumbnail": null,
+      "token_span": {
+        "end": 16,
+        "start": 16
+      }
+    },
+    {
+      "confidence": 0.45180722891566266,
+      "description": "A board game is a tabletop game that involves counters or pieces moved or placed on a pre-marked surface or \"board\", according to a set of rules. Some games are based on pure strategy, but many contain an element of chance; and some are purely chance, with no element of skill. Games usually have a goal that a player aims to achieve. Early board games represented a battle between two armies, and most modern board games are still based on defeating opposing players in terms of counters, winning position, or accrual of points. There are many varieties of board games. Their representation of real-life situations can range from having no inherent theme, like checkers, to having a specific theme and narrative, like Cluedo. Rules can range from the very simple, like Tic-tac-toe, to those describing a game universe in great detail, like Dungeons & Dragons – although most of the latter are role-playing games where the board is secondary to the game, serving to help visualize the game scenario. The time required to learn to play or master a game varies greatly from game to game, but is not necessarily correlated with the number or complexity of rules; games like chess or go possess relatively simple rulesets, but have great strategic depth.",
+      "label": "Board game",
+      "offset": 72,
+      "resource": "http://dbpedia.org/resource/Board_game",
+      "text": "board",
+      "thumbnail": "http://commons.wikimedia.org/wiki/Special:FilePath/Flickr_-_Official_U.S._Navy_Imagery_-_Sailors_play_board_games_with_children_at_the_Cameron_Community_Ministries_during_Rochester_Navy_Week.jpg?width=300",
+      "token_span": {
+        "end": 16,
+        "start": 16
+      }
+    },
+    {
+      "confidence": 0.03765060240963856,
+      "description": "In computing, a plug-in (or plugin, add-in, addin, add-on, addon, or extension) is a software component that adds a specific feature to an existing computer program. When a program supports plug-ins, it enables customization. The common examples are the plug-ins used in web browsers to add new features such as search-engines, virus scanners, or the ability to use a new file type such as a new video format. Well-known browser plug-ins include the Adobe Flash Player, the QuickTime Player, and the Java plug-in, which can launch a user-activated Java applet on a web page to its execution on a local Java virtual machine. A theme or skin is a preset package containing additional or changed graphical appearance details, achieved by the use of a graphical user interface (GUI) that can be applied to specific software and websites to suit the purpose, topic, or tastes of different users to customize the look and feel of a piece of computer software or an operating system front-end GUI (and window managers).",
+      "label": "Plug-in (computing)",
+      "offset": 72,
+      "resource": "http://dbpedia.org/resource/Plug-in_(computing)",
+      "text": "board",
+      "thumbnail": "http://commons.wikimedia.org/wiki/Special:FilePath/Mozilla_plugins_screenshot_without_subpixel_rendering.png?width=300",
+      "token_span": {
+        "end": 16,
+        "start": 16
+      }
+    },
+    {
+      "confidence": 0.024096385542168676,
+      "description": "A printed circuit board (PCB) mechanically supports and electrically connects electronic components using conductive tracks, pads and other features etched from copper sheets laminated onto a non-conductive substrate. Components – capacitors, resistors or active devices – are generally soldered on the PCB. Advanced PCBs may contain components embedded in the substrate. PCBs can be single sided (one copper layer), double sided (two copper layers) or multi-layer (outer and inner layers). Conductors on different layers are connected with vias. Multi-layer PCBs allow for much higher component density. FR-4 glass epoxy is the primary insulating substrate. A basic building block of the PCB is an FR-4 panel with a thin layer of copper foil laminated to one or both sides. In multi-layer boards multiple layers of material are laminated together. Printed circuit boards are used in all but the simplest electronic products. Alternatives to PCBs include wire wrap and point-to-point construction. PCBs require the additional design effort to lay out the circuit, but manufacturing and assembly can be automated. Manufacturing circuits with PCBs is cheaper and faster than with other wiring methods as components are mounted and wired with one single part. Furthermore, operator wiring errors are eliminated. When the board has no embedded components it is more correctly called a printed wiring board (PWB) or etched wiring board. However, the term printed wiring board has fallen into disuse. A PCB populated with electronic components is called a printed circuit assembly (PCA), printed circuit board assembly or PCB assembly (PCBA). The IPC preferred term for assembled boards is circuit card assembly (CCA), and for assembled backplanes it is backplane assemblies. The term PCB is used informally both for bare and assembled boards. A type of minimal PCB which utilizes a single integrated circuit for ease of modeling, for example, in Arduino, is called breakout board. The world market for bare PCBs exceeded $60.2 billion in 2014.",
+      "label": "Printed circuit board",
+      "offset": 72,
+      "resource": "http://dbpedia.org/resource/Printed_circuit_board",
+      "text": "board",
+      "thumbnail": "http://commons.wikimedia.org/wiki/Special:FilePath/PCB_Spectrum.jpg?width=300",
+      "token_span": {
+        "end": 16,
+        "start": 16
+      }
+    },
+    {
+      "confidence": 0.018072289156626505,
+      "description": "A printed circuit board (PCB) mechanically supports and electrically connects electronic components using conductive tracks, pads and other features etched from copper sheets laminated onto a non-conductive substrate. Components – capacitors, resistors or active devices – are generally soldered on the PCB. Advanced PCBs may contain components embedded in the substrate. PCBs can be single sided (one copper layer), double sided (two copper layers) or multi-layer (outer and inner layers). Conductors on different layers are connected with vias. Multi-layer PCBs allow for much higher component density. FR-4 glass epoxy is the primary insulating substrate. A basic building block of the PCB is an FR-4 panel with a thin layer of copper foil laminated to one or both sides. In multi-layer boards multiple layers of material are laminated together. Printed circuit boards are used in all but the simplest electronic products. Alternatives to PCBs include wire wrap and point-to-point construction. PCBs require the additional design effort to lay out the circuit, but manufacturing and assembly can be automated. Manufacturing circuits with PCBs is cheaper and faster than with other wiring methods as components are mounted and wired with one single part. Furthermore, operator wiring errors are eliminated. When the board has no embedded components it is more correctly called a printed wiring board (PWB) or etched wiring board. However, the term printed wiring board has fallen into disuse. A PCB populated with electronic components is called a printed circuit assembly (PCA), printed circuit board assembly or PCB assembly (PCBA). The IPC preferred term for assembled boards is circuit card assembly (CCA), and for assembled backplanes it is backplane assemblies. The term PCB is used informally both for bare and assembled boards. A type of minimal PCB which utilizes a single integrated circuit for ease of modeling, for example, in Arduino, is called breakout board. The world market for bare PCBs exceeded $60.2 billion in 2014.",
+      "label": "Printed circuit board",
+      "offset": 72,
+      "resource": "http://dbpedia.org/resource/Printed_circuit_board",
+      "text": "board",
+      "thumbnail": "http://commons.wikimedia.org/wiki/Special:FilePath/PCB_Spectrum.jpg?width=300",
+      "token_span": {
+        "end": 16,
+        "start": 16
+      }
+    },
+    {
+      "confidence": 0.006024096385542169,
+      "description": "A board book is a type of book printed on thick paperboard. The paperboard is printed and used for both the cover and the interior pages. Each page panel is a minimum of two plies of paperboard thickness. Unlike a typical paper book that is bound with saddle stitching (staples) or perfect binding, a board book's pages are specially folded and bound together. Board books are very durable and consequently intended for children, who often tend to be less gentle with books. Most of the board books produced in the world are produced in China and Mexico; however, there is one board book printer still located in the United States and some printers still in Europe.",
+      "label": "Board book",
+      "offset": 72,
+      "resource": "http://dbpedia.org/resource/Board_book",
+      "text": "board",
+      "thumbnail": "http://commons.wikimedia.org/wiki/Special:FilePath/Board_Book.jpg?width=300",
+      "token_span": {
+        "end": 16,
+        "start": 16
+      }
+    },
+    {
+      "confidence": 0.01581325301204819,
+      "description": "In duplicate bridge, a board is an item of equipment that holds one deal, or one deck of 52 cards distributed in four hands of 13 cards each. The design permits the entire deal of four hands to be passed, carried or stacked securely with the cards hidden from view in four pockets. This is required for duplicate bridge tournaments, where the same deal is played several times and so the composition of each hand must be preserved during and after each play of each deal. Each board is usually marked with the following information: board number – (from '1' to as high as '36') identifies the deal and helps to order the play of multiple deals; compass directions – used to match the four hands to the four players at a table; dealer – designates which player is the \"dealer\"; this designates the player who is to make the first call of the auction; vulnerability – often represented by color code: a \"vulnerable\" partnership is usually shown in red and a \"not vulnerable\" partnership in green, white or no color. Most designs include a slot or pocket to hold a paper travelling score sheet. Colloquially, the term board may refer to one deal plus its bidding and play.When bridge is played online, there are no physical boards, nor physical cards, but the software emulates all of the features of duplicate boards and the unit of the game is commonly called a board.",
+      "label": "Board (bridge)",
+      "offset": 72,
+      "resource": "http://dbpedia.org/resource/Board_(bridge)",
+      "text": "board",
+      "thumbnail": "http://commons.wikimedia.org/wiki/Special:FilePath/Board%2C_duplicate_bridge_%281%29.png?width=300",
+      "token_span": {
+        "end": 16,
+        "start": 16
+      }
+    },
+    {
+      "confidence": 0.27117696393625945,
+      "description": "A game is structured form of play, usually undertaken for enjoyment and sometimes used as an educational tool. Games are distinct from work, which is usually carried out for remuneration, and from art, which is more often an expression of aesthetic or ideological elements. However, the distinction is not clear-cut, and many games are also considered to be work (such as professional players of spectator sports or games) or art (such as jigsaw puzzles or games involving an artistic layout such as Mahjong, solitaire, or some video games). Key components of games are goals, rules, challenge, and interaction. Games generally involve mental or physical stimulation, and often both. Many games help develop practical skills, serve as a form of exercise, or otherwise perform an educational, simulational, or psychological role. Attested as early as 2600 BC, games are a universal part of human experience and present in all cultures. The Royal Game of Ur, Senet, and Mancala are some of the oldest known games.",
+      "label": "Game",
+      "offset": 60,
+      "resource": "http://dbpedia.org/resource/Game",
+      "text": "games",
+      "thumbnail": "http://commons.wikimedia.org/wiki/Special:FilePath/Tug-of-war.jpg?width=300",
+      "token_span": {
+        "end": 13,
+        "start": 13
+      }
+    },
+    {
+      "confidence": 0.1588447653429603,
+      "description": "Table tennis, also known as ping pong, is a sport in which two or four players hit a lightweight ball back and forth across a table using a small bat. The game takes place on a hard table divided by a net. Except for the initial serve, the rules are generally as follows: players must allow a ball played toward them to bounce one time on their side of the table, and must return it so that it bounces on the opposite side at least once. A point is scored when a player fails to return the ball within the rules. Play is fast and demands quick reactions. Spinning the ball alters its trajectory and limits an opponent's options, giving the hitter a great advantage. Table tennis is governed by the worldwide organization International Table Tennis Federation (ITTF), founded in 1926. ITTF currently includes 220 member associations. The table tennis official rules are specified in the ITTF handbook. Table tennis has been an Olympic sport since 1988, with several event categories. From 1988 until 2004, these were men's singles, women's singles, men's doubles and women's doubles. Since 2008, a team event has been played instead of the doubles.",
+      "label": "Table tennis",
+      "offset": 19,
+      "resource": "http://dbpedia.org/resource/Table_tennis",
+      "text": "table",
+      "thumbnail": "http://commons.wikimedia.org/wiki/Special:FilePath/Mondial_Ping_-_Men%27s_Singles_-_Round_4_-_Kenta_Matsudaira-Vladimir_Samsonov_-_57.jpg?width=300",
+      "token_span": {
+        "end": 5,
+        "start": 5
+      }
+    },
+    {
+      "confidence": 0.010830324909747292,
+      "description": "In computer science, an array data structure, or simply an array, is a data structure consisting of a collection of elements (values or variables), each identified by at least one array index or key. An array is stored so that the position of each element can be computed from its index tuple by a mathematical formula. The simplest type of data structure is a linear array, also called one-dimensional array. For example, an array of 10 32-bit integer variables, with indices 0 through 9, may be stored as 10 words at memory addresses 2000, 2004, 2008, ... 2036, so that the element with index i has the address 2000 + 4 × i. The memory address of the first element of an array is called first address or foundation address. Because the mathematical concept of a matrix can be represented as a two-dimensional grid, two-dimensional arrays are also sometimes called matrices. In some cases the term \"vector\" is used in computing to refer to an array, although tuples rather than vectors are more correctly the mathematical equivalent. Arrays are often used to implement tables, especially lookup tables; the word table is sometimes used as a synonym of array. Arrays are among the oldest and most important data structures, and are used by almost every program. They are also used to implement many other data structures, such as lists and strings. They effectively exploit the addressing logic of computers. In most modern computers and many external storage devices, the memory is a one-dimensional array of words, whose indices are their addresses. Processors, especially vector processors, are often optimized for array operations. Arrays are useful mostly because the element indices can be computed at run time. Among other things, this feature allows a single iterative statement to process arbitrarily many elements of an array. For that reason, the elements of an array data structure are required to have the same size and should use the same data representation. The set of valid index tuples and the addresses of the elements (and hence the element addressing formula) are usually, but not always, fixed while the array is in use. The term array is often used to mean array data type, a kind of data type provided by most high-level programming languages that consists of a collection of values or variables that can be selected by one or more indices computed at run-time. Array types are often implemented by array structures; however, in some languages they may be implemented by hash tables, linked lists, search trees, or other data structures. The term is also used, especially in the description of algorithms, to mean associative array or \"abstract array\", a theoretical computer science model (an abstract data type or ADT) intended to capture the essential properties of arrays.",
+      "label": "Array data structure",
+      "offset": 19,
+      "resource": "http://dbpedia.org/resource/Array_data_structure",
+      "text": "table",
+      "thumbnail": null,
+      "token_span": {
+        "end": 5,
+        "start": 5
+      }
+    },
+    {
+      "confidence": 0.09025270758122744,
+      "description": "Tables is a general name given to a class of board games similar to backgammon, played on a board with two rows of 12 vertical markings called \"points\". Players roll dice to determine the movement of pieces. Tables games are among the oldest known board games, and many variants are played throughout the world.",
+      "label": "Tables (board game)",
+      "offset": 19,
+      "resource": "http://dbpedia.org/resource/Tables_(board_game)",
+      "text": "table",
+      "thumbnail": "http://commons.wikimedia.org/wiki/Special:FilePath/Bg_board_L.jpg?width=300",
+      "token_span": {
+        "end": 5,
+        "start": 5
+      }
+    },
+    {
+      "confidence": 0.10830324909747292,
+      "description": "A table is an item of furniture with a flat top and one or more legs, used as a surface for working at or on which to place things. Some common types of table are the dining room table, which is used for seated persons to eat meals; the coffee table, which is a low table used in living rooms to display items or serve refreshments; and the bedside table, which is used to place an alarm clock and a lamp. Common design elements include: \n*  top surfaces of various shapes, including rectangular, square, rounded or semi-circular  \n*  legs arranged in two or more similar pairs. It usually has four legs.  \n*  several geometries of folding table that can be collapsed into a smaller volume (e.g., a TV tray, which is a portable, folding table on a stand) \n*  heights ranging up and down from the most common 18–30 inches (46–76 cm) range, often reflecting the height of chairs or bar stools used as seating for people making use of a table, as for eating or performing various manipulations of objects resting on a table \n*  presence or absence of drawers, shelves or other areas for storing items \n*  expansion of the table surface by insertion of leaves or locking hinged drop leaf sections into a horizontal position (this is particularly common for dining tables)",
+      "label": "Table (furniture)",
+      "offset": 19,
+      "resource": "http://dbpedia.org/resource/Table_(furniture)",
+      "text": "table",
+      "thumbnail": "http://commons.wikimedia.org/wiki/Special:FilePath/Tablebasicstructure.png?width=300",
+      "token_span": {
+        "end": 5,
+        "start": 5
+      }
+    },
+    {
+      "confidence": 0.06016847172081829,
+      "description": "A blackboard (also known as a chalkboard) is a reusable writing surface on which text or drawings are made with sticks of calcium sulfate or calcium carbonate, known, when used for this purpose, as chalk. Blackboards were originally made of smooth, thin sheets of black or dark grey slate stone.",
+      "label": "Blackboard",
+      "offset": 19,
+      "resource": "http://dbpedia.org/resource/Blackboard",
+      "text": "table",
+      "thumbnail": "http://commons.wikimedia.org/wiki/Special:FilePath/Math_lecture_at_TKK.JPG?width=300",
+      "token_span": {
+        "end": 5,
+        "start": 5
+      }
+    },
+    {
+      "confidence": 0.3369434416365824,
+      "description": "Backgammon is one of the oldest board games known. It is a two player game where playing pieces are moved according to the roll of dice, and a player wins by removing all of his pieces from the board before their opponent. Backgammon is a member of the tables family, one of the oldest classes of board games in the world. Backgammon involves a combination of strategy and luck (from rolling dice). While the dice may determine the outcome of a single game, over a series of many games, the better player will accumulate the better record, somewhat like poker. Thus, records of matches between players are good indicators of relative skill. With each roll of the dice, players must choose from numerous options for moving their checkers and anticipate possible counter-moves by the opponent. In variants that originate from early 20th century New York, players may raise the stakes during the game. There is an established repertoire of common tactics and occurrences. Like chess, backgammon has been studied with great interest by computer scientists. Owing to this research, backgammon software has been developed that is capable of beating world-class human players (see TD-Gammon for an example).",
+      "label": "Backgammon",
+      "offset": 19,
+      "resource": "http://dbpedia.org/resource/Backgammon",
+      "text": "table",
+      "thumbnail": "http://commons.wikimedia.org/wiki/Special:FilePath/Backgammon_lg.png?width=300",
+      "token_span": {
+        "end": 5,
+        "start": 5
+      }
+    },
+    {
+      "confidence": 0.014263074484944533,
+      "description": "",
+      "label": "TOP (rolling papers)",
+      "offset": 9,
+      "resource": "http://dbpedia.org/resource/TOP_(rolling_papers)",
+      "text": "tops",
+      "thumbnail": null,
+      "token_span": {
+        "end": 2,
+        "start": 2
+      }
+    },
+    {
+      "confidence": 0.08716323296354993,
+      "description": "A rook (♖ ♜ borrowed from Persian رخ, rokh) is a piece in the strategy board game of chess. Formerly the piece was called the tower, marquess, rector, and comes (). The term castle is considered informal, incorrect, or old-fashioned. However, in Persian the word for \"castling\" is qal'eh raften (from qal'eh, \"castle\") and not rokh raftan. Each player starts the game with two rooks, one in each of the corner squares on their own side of the board.",
+      "label": "Rook (chess)",
+      "offset": 9,
+      "resource": "http://dbpedia.org/resource/Rook_(chess)",
+      "text": "tops",
+      "thumbnail": "http://commons.wikimedia.org/wiki/Special:FilePath/Chess_piece_-_White_rook.JPG?width=300",
+      "token_span": {
+        "end": 2,
+        "start": 2
+      }
+    },
+    {
+      "confidence": 0.14421553090332806,
+      "description": "A teetotum (or T-totum) is a form of gambling spinning top that is known across Europe from Roman times. It has a polygonal body - originally four-sided - marked with letters or numbers, which indicate the result of each spin. The name originates from Latin Totum meaning 'all' which was marked by a T on one of the four sides and indicated that the winning player could take all the played tokens.",
+      "label": "Teetotum",
+      "offset": 9,
+      "resource": "http://dbpedia.org/resource/Teetotum",
+      "text": "tops",
+      "thumbnail": "http://commons.wikimedia.org/wiki/Special:FilePath/Chinese_Teetotum_1893.png?width=300",
+      "token_span": {
+        "end": 2,
+        "start": 2
+      }
+    },
+    {
+      "confidence": 0.40570522979397783,
+      "description": "A ball is a round object (usually spherical but sometimes ovoid) with various uses. It is used in ball games, where the play of the game follows the state of the ball as it is hit, kicked or thrown by players. Balls can also be used for simpler activities, such as catch, marbles and juggling. Balls made from hard-wearing materials are used in engineering applications to provide very low friction bearings, known as ball bearings. Black-powder weapons use stone and metal balls as projectiles. Although many types of balls are today made from rubber, this form was unknown outside the Americas until after the voyages of Columbus. The Spanish were the first Europeans to see bouncing rubber balls (albeit solid and not inflated) which were employed most notably in the Mesoamerican ballgame. Balls used in various sports in other parts of the world prior to Columbus were made from other materials such as animal bladders or skins, stuffed with various materials. As balls are one of the most familiar spherical objects to humans, the word \"ball\" is used to refer to, or to describe, anything spherical or near-spherical.",
+      "label": "Ball",
+      "offset": 9,
+      "resource": "http://dbpedia.org/resource/Ball",
+      "text": "tops",
+      "thumbnail": "http://commons.wikimedia.org/wiki/Special:FilePath/Russian_balls_12-13.jpg?width=300",
+      "token_span": {
+        "end": 2,
+        "start": 2
+      }
+    }
+  ],
+  "text": "Cpat the tops of a table and it could be used for different games. Like board games or pen and paper RPGs."
+}
