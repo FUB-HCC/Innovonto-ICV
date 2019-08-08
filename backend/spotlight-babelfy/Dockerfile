@@ -13,8 +13,6 @@ WORKDIR $APP_HOME
 ENV MIX_ENV prod
 ENV PORT 4000
 
-# ENV PROXY http://proxy.fu-berlin.de:80
-
 COPY . .
 RUN mix deps.get --only prod \
  && mix compile --force \
