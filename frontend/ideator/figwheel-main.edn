@@ -1,0 +1,3 @@
+{
+;; :ring-handler hello_world.server/handler
+ :target-dir "resources"}

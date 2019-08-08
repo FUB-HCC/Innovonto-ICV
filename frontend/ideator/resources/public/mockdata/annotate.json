@@ -1,0 +1,231 @@
+{
+  "annotation_candidates": [
+    {
+      "offset": 29,
+      "resource_candidates": [
+        {
+          "confidence": 0.0625,
+          "description": "Alexander Garden FRSE FRS (January 1730 – 15 April 1791) was a Scottish physician, botanist and zoologist. The gardenia flower is named after him. He lived for many years in Charleston, South Carolina, using his spare time to study plants and living creatures, and sending specimens to Carl Linnaeus.",
+          "label": "Alexander Garden (naturalist)",
+          "offset": 29,
+          "resource": "http://dbpedia.org/resource/Alexander_Garden_(naturalist)",
+          "source": "babelfy",
+          "text": "garden",
+          "thumbnail": "http://commons.wikimedia.org/wiki/Special:FilePath/White_Gardenia_flower.jpg?width=300",
+          "token_span": {
+            "end": 6,
+            "start": 6
+          }
+        },
+        {
+          "confidence": 0.0625,
+          "description": "The French formal garden, also called the jardin à la française (literally, \"garden in the French manner\" in French), is a style of garden based on symmetry and the principle of imposing order on nature. Its epitome is generally considered to be the Gardens of Versailles designed during the 17th century by the landscape architect André Le Nôtre for Louis XIV and widely copied by other European courts.",
+          "label": "French formal garden",
+          "offset": 29,
+          "resource": "http://dbpedia.org/resource/French_formal_garden",
+          "source": "babelfy",
+          "text": "garden",
+          "thumbnail": "http://commons.wikimedia.org/wiki/Special:FilePath/Versailles_Garden.jpg?width=300",
+          "token_span": {
+            "end": 6,
+            "start": 6
+          }
+        },
+        {
+          "confidence": 0.0625,
+          "description": "The English landscape garden, also called English landscape park or simply the English garden (French: Jardin à l'anglaise, Italian: Giardino all'inglese, German: Englischer Landschaftsgarten, Portuguese: Jardim inglês, Spanish: Jardín inglés), is a style of \"landscape\" garden which emerged in England in the early 18th century, and spread across Europe, replacing the more formal, symmetrical jardin à la française of the 17th century as the principal gardening style of Europe. The English garden presented an idealized view of nature. It drew inspiration from paintings of landscapes by Claude Lorrain and Nicolas Poussin, and, in the Anglo-Chinese garden, from the classic Chinese gardens of the East, which had recently been described by European travellers. The English garden usually included a lake, sweeps of gently rolling lawns set against groves of trees, and recreations of classical temples, Gothic ruins, bridges, and other picturesque architecture, designed to recreate an idyllic pastoral landscape. The work of Lancelot \"Capability\" Brown was particularly influential. By the end of the 18th century the English garden was being imitated by the French landscape garden, and as far away as St. Petersburg, Russia, in Pavlovsk, the gardens of the future Emperor Paul. It also had a major influence on the form of the public parks and gardens which appeared around the world in the 19th century.",
+          "label": "English landscape garden",
+          "offset": 29,
+          "resource": "http://dbpedia.org/resource/English_landscape_garden",
+          "source": "babelfy",
+          "text": "garden",
+          "thumbnail": "http://commons.wikimedia.org/wiki/Special:FilePath/Stowe_Rotunda.jpg?width=300",
+          "token_span": {
+            "end": 6,
+            "start": 6
+          }
+        },
+        {
+          "confidence": 0.0625,
+          "description": "Japanese gardens (日本庭園 nihon teien) are traditional gardens that create miniature idealized landscapes, often in a highly abstract and stylized way. The gardens of the Emperors and nobles were designed for recreation and aesthetic pleasure, while the gardens of Buddhist temples were designed for contemplation and meditation. Japanese garden styles include karesansui, Japanese rock gardens or Zen gardens, which are meditation gardens where white sand replaces water; roji, simple, rustic gardens with teahouses where the Japanese tea ceremony is conducted; kaiyū-shiki-teien, promenade or stroll gardens, where the visitor follows a path around the garden to see carefully composed landscapes; and tsubo-niwa, small courtyard gardens. Japanese gardens were developed under the influences of the Chinese gardens, but gradually Japanese garden designers began to develop their own aesthetics, based on Japanese materials and Japanese culture. By the Edo period, the Japanese garden had its own distinct appearance. Since the end of the 19th century, Japanese gardens have also been adapted to Western settings.",
+          "label": "Japanese garden",
+          "offset": 29,
+          "resource": "http://dbpedia.org/resource/Japanese_garden",
+          "source": "babelfy",
+          "text": "garden",
+          "thumbnail": "http://commons.wikimedia.org/wiki/Special:FilePath/Saihouji-kokedera01.jpg?width=300",
+          "token_span": {
+            "end": 6,
+            "start": 6
+          }
+        },
+        {
+          "confidence": 0.0625,
+          "description": "The Chinese garden is a landscape garden style which has evolved over three thousand years. It includes both the vast gardens of the Chinese emperors and members of the imperial family, built for pleasure and to impress, and the more intimate gardens created by scholars, poets, former government officials, soldiers and merchants, made for reflection and escape from the outside world. They create an idealized miniature landscape, which is meant to express the harmony that should exist between man and nature. A typical Chinese garden is enclosed by walls and includes one or more ponds, rock works, trees and flowers, and an assortment of halls and pavilions within the garden, connected by winding paths and zig-zag galleries. By moving from structure to structure, visitors can view a series of carefully composed scenes, unrolling like a scroll of landscape paintings.Records of the 21st conference of the UNESCO World Heritage Committee, describing Classical Chinese garden design and the gardens of Suzhou China.",
+          "label": "Chinese garden",
+          "offset": 29,
+          "resource": "http://dbpedia.org/resource/Chinese_garden",
+          "source": "babelfy",
+          "text": "garden",
+          "thumbnail": "http://commons.wikimedia.org/wiki/Special:FilePath/20090510_Shanghai_Yuyan_6689.jpg?width=300",
+          "token_span": {
+            "end": 6,
+            "start": 6
+          }
+        },
+        {
+          "confidence": 0.0625,
+          "description": "Madison Square Garden (often called MSG or simply The Garden) is a multi-purpose indoor arena in the New York City borough of Manhattan. Located in Midtown Manhattan between 7th and 8th Avenues from 31st to 33rd Streets, it is situated atop Pennsylvania Station. It is the fourth venue to bear the name \"Madison Square Garden\", the first two (1879 and 1890) of which were located on Madison Square, on East 26th Street and Madison Avenue, with the third Madison Square Garden further uptown at Eighth Avenue and 50th Street. The Garden is used for professional basketball and ice hockey, as well as boxing, concerts, ice shows, circuses, professional wrestling and other forms of sports and entertainment. It is close to other midtown Manhattan landmarks, including the Empire State Building, Koreatown, and Macy's at Herald Square. It is home to the New York Rangers of the National Hockey League, the New York Knicks of the National Basketball Association, and residency to singer-songwriter Billy Joel. The Garden opened on February 11, 1968, and is the oldest major sporting facility in the New York metropolitan area. It is the oldest arena in the National Hockey League and the second-oldest arena in the National Basketball Association. MSG is the fourth-busiest music arena in the world in terms of ticket sales, behind The O2 Arena, the Manchester Arena and The SSE Hydro in the United Kingdom. At a total construction cost of approximately $1.1 billion, MSG has been ranked as one of the 10 most expensive stadium venues ever built. It is part of the Pennsylvania Plaza office and retail complex. Several other operating entities related to the Garden share its name.",
+          "label": "Madison Square Garden",
+          "offset": 29,
+          "resource": "http://dbpedia.org/resource/Madison_Square_Garden",
+          "source": "babelfy",
+          "text": "garden",
+          "thumbnail": "http://commons.wikimedia.org/wiki/Special:FilePath/Madison_Square_Garden%2C_February_2013.jpg?width=300",
+          "token_span": {
+            "end": 6,
+            "start": 6
+          }
+        },
+        {
+          "confidence": 0.125,
+          "description": "A garden is a planned space, usually outdoors, set aside for the display, cultivation, and enjoyment of plants and other forms of nature. The garden can incorporate both natural and man-made materials. The most common form today is known as a residential garden, but the term garden has traditionally been a more general one. Zoos, which display wild animals in simulated natural habitats, were formerly called zoological gardens. Western gardens are almost universally based on plants, with garden often signifying a shortened form of botanical garden. Some traditional types of eastern gardens, such as Zen gardens, use plants sparsely or not at all. Xeriscape gardens use local native plants that do not require irrigation or extensive use of other resources while still providing the benefits of a garden environment. Gardens may exhibit structural enhancements, sometimes called follies, including water features such as fountains, ponds (with or without fish), waterfalls or creeks, dry creek beds, statuary, arbors, trellises and more. Some gardens are for ornamental purposes only, while some gardens also produce food crops, sometimes in separate areas, or sometimes intermixed with the ornamental plants. Food-producing gardens are distinguished from farms by their smaller scale, more labor-intensive methods, and their purpose (enjoyment of a hobby rather than produce for sale). Flower gardens combine plants of different heights, colors, textures, and fragrances to create interest and delight the senses. Gardening is the activity of growing and maintaining the garden. This work is done by an amateur or professional gardener. A gardener might also work in a non-garden setting, such as a park, a roadside embankment, or other public space. Landscape architecture is a related professional activity with landscape architects tending to specialise in design for public and corporate clients.",
+          "label": "Garden",
+          "offset": 29,
+          "resource": "http://dbpedia.org/resource/Garden",
+          "source": "babelfy",
+          "text": "garden",
+          "thumbnail": "http://commons.wikimedia.org/wiki/Special:FilePath/TajGardenWide.jpg?width=300",
+          "token_span": {
+            "end": 6,
+            "start": 6
+          }
+        },
+        {
+          "confidence": 0.0625,
+          "description": "The Garden of Eden (Hebrew גַּן עֵדֶן, Gan ʿEḏen) or often Paradise is the biblical \"garden of God\", described most notably in the Book of Genesis chapters 2 and 3, and also in the Book of Ezekiel. The \"garden of God\", not called Eden, is mentioned in Genesis 13, and the \"trees of the garden\" are mentioned in Ezekiel 31. The Book of Zechariah and the Book of Psalms also refer to trees and water in relation to the temple without explicitly mentioning Eden. Traditionally, the favored derivation of the name \"Eden\" was from the Akkadian edinnu, derived from a Sumerian word meaning \"plain\" or \"steppe\". Eden is now believed to be more closely related to an Aramaic root word meaning \"fruitful, well-watered.\" The Hebrew term is translated \"pleasure\" in Sarah's secret saying in Genesis 18:12. Much like records of the great flood, creation story and confusion of languages, the story of Eden echoes the Mesopotamian myth of a king, as a primordial man, who is placed in a divine garden to guard the tree of life. In the Hebrew Bible, Adam and Eve are depicted as walking around the Garden of Eden naked due to their innocence. Eden and its rivers may signify the real Jerusalem, the Temple of Solomon, or the Promised Land. It may also represent the divine garden on Zion, and the mountain of God, which was also Jerusalem. The imagery of the Garden, with its serpent and cherubs, has been compared to the images of the Solomonic Temple with its copper serpent (the nehushtan) and guardian cherubs.",
+          "label": "Garden of Eden",
+          "offset": 29,
+          "resource": "http://dbpedia.org/resource/Garden_of_Eden",
+          "source": "babelfy",
+          "text": "garden",
+          "thumbnail": "http://commons.wikimedia.org/wiki/Special:FilePath/Hieronymus_Bosch_-_The_Garden_of_Earthly_Delights_-_The_Earthly_Paradise_%28Garden_of_Eden%29.jpg?width=300",
+          "token_span": {
+            "end": 6,
+            "start": 6
+          }
+        },
+        {
+          "confidence": 0.0625,
+          "description": "The Garden is an album by the American experimental electronic band Silver Apples. It was recorded in 1970 but was not released until 1998, by record label Bully.",
+          "label": "The Garden (Silver Apples album)",
+          "offset": 29,
+          "resource": "http://dbpedia.org/resource/The_Garden_(Silver_Apples_album)",
+          "source": "babelfy",
+          "text": "garden",
+          "thumbnail": null,
+          "token_span": {
+            "end": 6,
+            "start": 6
+          }
+        },
+        {
+          "confidence": 0.0625,
+          "description": "Garden design is the art and process of designing and creating plans for layout and planting of gardens and landscapes. Garden design may be done by the garden owner themselves, or by professionals of varying levels of experience and expertise. Most professional garden designers have some training in horticulture and the principles of design, and some are also landscape architects, a more formal level of training that usually requires an advanced degree and often a state license. Amateur gardeners may also attain a high level of experience from extensive hours working in their own gardens, through casual study, serious study in Master Gardener Programs, or by joining gardening clubs.",
+          "label": "Garden design",
+          "offset": 29,
+          "resource": "http://dbpedia.org/resource/Garden_design",
+          "source": "babelfy",
+          "text": "garden",
+          "thumbnail": "http://commons.wikimedia.org/wiki/Special:FilePath/Sissinghurst_Castle_Garden_-_The_White_Garden_-_geograph.org.uk_-_26686.jpg?width=300",
+          "token_span": {
+            "end": 6,
+            "start": 6
+          }
+        },
+        {
+          "confidence": 0.0625,
+          "description": "A Mary Garden is a small sacred garden enclosing a statue or shrine of the Virgin Mary, who is known to many Christians as the Blessed Virgin, Our Lady, or the Mother of God. In the New Testament, Mary is the mother of Jesus of Nazareth. Mary gardens are most common to those Christian denominations which hold the Virgin Mary in special esteem, particularly Roman Catholics and Anglicans.",
+          "label": "Mary garden",
+          "offset": 29,
+          "resource": "http://dbpedia.org/resource/Mary_garden",
+          "source": "babelfy",
+          "text": "garden",
+          "thumbnail": "http://en.wikipedia.org/wiki/Special:FilePath/VirginMaryGarden.png?width=300",
+          "token_span": {
+            "end": 6,
+            "start": 6
+          }
+        }
+      ],
+      "text": "garden",
+      "token_span": {
+        "end": 6,
+        "start": 6
+      }
+    },
+    {
+      "offset": 15,
+      "resource_candidates": [
+        {
+          "confidence": 0.06060606060606061,
+          "description": "Robert Anthony Plant, CBE (born 20 August 1948) is an English musician, singer, and songwriter best known as the lead singer and lyricist of the rock band Led Zeppelin. A powerful and wide",
+          "label": "Robert Plant",
+          "offset": 15,
+          "resource": "http://dbpedia.org/resource/Robert_Plant",
+          "source": "babelfy",
+          "text": "plants",
+          "thumbnail": "http://commons.wikimedia.org/wiki/Special:FilePath/Robert_Plant_at_the_Palace_Theatre%2C_Manchester.jpg?width=300",
+          "token_span": {
+            "end": 3,
+            "start": 3
+          }
+        },
+        {
+          "confidence": 0.9928767757703832,
+          "description": "Plants, also called green plants, are multicellular eukaryotes of the kingdom Plantae. They form an unranked clade Viridiplantae (Latin for green plants)",
+          "label": "Plant",
+          "offset": 15,
+          "resource": "http://dbpedia.org/resource/Plant",
+          "source": "spotlight",
+          "text": "plants",
+          "thumbnail": "http://commons.wikimedia.org/wiki/Special:FilePath/Diversity_of_plants_image_version_5.png?width=300",
+          "token_span": {
+            "end": 3,
+            "start": 3
+          }
+        }
+      ],
+      "text": "plants",
+      "token_span": {
+        "end": 3,
+        "start": 3
+      }
+    },
+    {
+      "offset": 0,
+      "resource_candidates": [
+        {
+          "confidence": 1.0,
+          "description": "Paint is any liquid, liquefiable, or mastic composition that, after application to a substrate in a thin layer, converts to a solid film. It is most commonly used to protect, color, or provide texture to objects.",
+          "label": "Paint",
+          "offset": 0,
+          "resource": "http://dbpedia.org/resource/Paint",
+          "source": "babelfy",
+          "text": "Paint",
+          "thumbnail": "http://commons.wikimedia.org/wiki/Special:FilePath/GreenPaintBucketRome.jpg?width=300",
+          "token_span": {
+            "end": 0,
+            "start": 0
+          }
+        }
+      ],
+      "text": "Paint",
+      "token_span": {
+        "end": 0,
+        "start": 0
+      }
+    }
+  ],
+  "text": "Paint all your plants in the garden"
+}
