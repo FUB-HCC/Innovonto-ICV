@@ -1,0 +1,27 @@
+{{#partial "title"}}
+    <title>ICV Annotator - Annotate</title>
+{{/partial}}
+
+{{#partial "content" }}
+    <script>
+        var annotatorConfig = {{{annotatorConfig}}};
+        var input = {{{input}}}
+    </script>
+
+    <noscript>
+        You need to enable JavaScript to run this application.
+    </noscript>
+    <div id="app">
+        <!-- TODO include loading spinner -->
+        <div class="mx-auto text-center">
+            <h2>Loading the Microtasks-App</h2>
+            <p>If you see this loading screen longer than 5 seconds, something went wrong.
+                Please contact us, or return the HIT.</p>
+        </div>
+    </div>
+{{/partial}}
+{{#partial "js-includes" }}
+    <script src="/js/compiled/app.js"></script>
+    <script>hcc.brainstorming.core.init();</script>
+{{/partial}}
+{{> layout}}

@@ -1,0 +1,77 @@
+{{#partial "title"}}
+    <title>ICV Annotator - Initialize</title>
+{{/partial}}
+
+
+{{#partial "content" }}
+    <div class="ant-layout">
+        <div class="content-area ant-layout-content">
+            <div class="ant-row">
+                <div class="ant-col-24">
+                    <div class="box">
+                        <div class="box-content">
+                            <h1>Upload File with Entities to Annotate</h1>
+                            <form class="ant-form ant-form-horizontal"
+                                  method="POST" enctype="multipart/form-data" action="/">
+
+                                <div class="ant-row ant-form-item">
+                                    <div class="ant-col-6 ant-form-item-label">
+                                        <label class="ant-form-item-required" for="inputGraph" title="Input-Graph">Input
+                                            Graph</label>
+                                    </div>
+                                    <div class="ant-col-13 ant-form-item-control-wrapper">
+                                        <div class="ant-form-item-control">
+                                            <span class="ant-form-item-children">
+                                                <div class="ant-upload ant-upload-select ant-upload-select-picture">
+                                                    <span class="ant-upload">
+                                                        <input class="ant-btn" type="file" name="inputGraph"/>
+                                                    </span>
+                                                </div>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ant-row ant-form-item">
+                                    <div class="ant-col-6 ant-form-item-label"><label for="annotateProperty"
+                                                                                      class="ant-form-item-required"
+                                                                                      title="annotate-property">Property to Annotate</label></div>
+                                    <div class="ant-col-13 ant-form-item-control-wrapper">
+                                        <div class="ant-form-item-control">
+                                            <span class="ant-form-item-children">
+                                                <input type="text" id="annotateProperty" name="annotateProperty" class="ant-input">
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ant-row ant-form-item">
+                                    <div class="ant-col-6 ant-form-item-label"><label for="itemType"
+                                                                                      class="ant-form-item"
+                                                                                      title="item-type">Item Type to Annotate (optional)</label></div>
+                                    <div class="ant-col-13 ant-form-item-control-wrapper">
+                                        <div class="ant-form-item-control">
+                                            <span class="ant-form-item-children">
+                                                <input type="text" id="itemType" name="itemType" class="ant-input">
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ant-row ant-form-item">
+                                    <div class="ant-col-offset-6 ant-form-item-control-wrapper">
+                                        <div class="ant-form-item-control">
+                                            <span class="ant-form-item-children">
+                                                <input class="ant-btn ant-btn-primary" type="submit" value="Submit"/>
+                                                <input class="ant-btn" type="reset"/>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{{/partial}}
+
+{{> layout}}
