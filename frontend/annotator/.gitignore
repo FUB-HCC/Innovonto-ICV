@@ -11,7 +11,8 @@ pom.xml
 .nrepl-port
 .cpcache/
 .rebel_readline_history
+.idea/
 
-/.idea
 *.iml
 /cljs-out
+/resources/public/cljs-out

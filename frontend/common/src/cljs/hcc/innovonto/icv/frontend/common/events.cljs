@@ -217,7 +217,9 @@
                    {:type    "icv-validate-annotation-candidate"
                     :payload {:timerValue (:seconds (:timer db))
                               :id         id
-                              :text       (:text (:current-annotation-candidate (:icv db)))}})
+                              :text       (:text (:current-annotation-candidate (:icv db)))}}
+                   ;;TODO config/urlconfig
+                   )
       :dispatch   [::move-to-next-annotation-candidate]})))
 
 (re-frame/reg-event-fx
@@ -230,7 +232,8 @@
                    {:type    "icv-reject-annotation-candidate"
                     :payload {:timerValue (:seconds (:timer db))
                               :id         id
-                              :text       (:text (:current-annotation-candidate (:icv db)))}})
+                              :text       (:text (:current-annotation-candidate (:icv db)))}}
+                   ;;TODO config/urlconfig)
       :dispatch   [::move-to-next-annotation-candidate]})))
 
 ;; RESOURCE_CANDIDATES
@@ -244,7 +247,9 @@
                    {:type    "icv-deselect-resource-candidate"
                     :payload {:timerValue (:seconds (:timer db))
                               :id         id
-                              :resource   (:resource resource-candidate)}})})))
+                              :resource   (:resource resource-candidate)}}
+                   ;;TODO config/urlconfig
+                   )})))
 
 (re-frame/reg-event-fx
  ::select-resource-candidate
