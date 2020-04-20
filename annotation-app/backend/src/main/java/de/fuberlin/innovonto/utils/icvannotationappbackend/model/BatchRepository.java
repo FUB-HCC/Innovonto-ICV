@@ -7,4 +7,5 @@ import java.util.UUID;
 
 public interface BatchRepository  extends CrudRepository<Batch, UUID> {
     Optional<Batch> findByAssignmentId(String assignmentId);
+    Optional<Batch> findByResultsAnnotationSessionId(UUID annotationSessionId);
 }

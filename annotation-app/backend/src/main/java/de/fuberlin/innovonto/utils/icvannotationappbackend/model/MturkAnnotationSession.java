@@ -38,12 +38,37 @@ public class MturkAnnotationSession {
 
     private boolean passedAttentionCheck = false;
 
+    @Enumerated(EnumType.STRING)
     private ReviewStatus reviewStatus = ReviewStatus.UNREVIEWED;
 
     @OneToMany(cascade = CascadeType.ALL)
-    private List<AnnotatedIdea> annotatedIdeas;
+    private List<IdeaAnnotation> annotatedIdeas;
 
     //Hibernate
     public MturkAnnotationSession() {
+    }
+
+    public UUID getId() {
+        return id;
+    }
+
+    public void setReviewStatus(ReviewStatus reviewStatus) {
+        this.reviewStatus = reviewStatus;
+    }
+
+    public ReviewStatus getReviewStatus() {
+        return reviewStatus;
+    }
+
+    public void setReviewed(LocalDateTime reviewed) {
+        this.reviewed = reviewed;
+    }
+
+    public List<IdeaAnnotation> getAnnotatedIdeas() {
+        return annotatedIdeas;
+    }
+
+    public void setAnnotatedIdeas(List<IdeaAnnotation> annotatedIdeas) {
+        this.annotatedIdeas = annotatedIdeas;
     }
 }
