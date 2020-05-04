@@ -1,5 +1,7 @@
 package de.fuberlin.innovonto.utils.icvannotationappbackend.model;
 
+import de.fuberlin.innovonto.utils.batchmanager.api.Submission;
+import de.fuberlin.innovonto.utils.batchmanager.api.SubmissionState;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -9,7 +11,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Entity
-public class MturkAnnotationSession {
+public class MturkAnnotationSession implements Submission {
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(
@@ -33,13 +35,10 @@ public class MturkAnnotationSession {
     private String annotationProjectId;
 
     //Survey
-    private String fulltextFeedback;
-    private int clarityRating;
-
-    private boolean passedAttentionCheck = false;
+    //TODO survey.
 
     @Enumerated(EnumType.STRING)
-    private ReviewStatus reviewStatus = ReviewStatus.UNREVIEWED;
+    private SubmissionState submissionState = SubmissionState.UNREVIEWED;
 
     @OneToMany(cascade = CascadeType.ALL)
     private List<IdeaAnnotation> annotatedIdeas;
@@ -52,12 +51,52 @@ public class MturkAnnotationSession {
         return id;
     }
 
-    public void setReviewStatus(ReviewStatus reviewStatus) {
-        this.reviewStatus = reviewStatus;
+    @Override
+    public String getHitId() {
+        return hitId;
     }
 
-    public ReviewStatus getReviewStatus() {
-        return reviewStatus;
+    @Override
+    public void setHitId(String hitId) {
+        this.hitId = hitId;
+    }
+
+    @Override
+    public String getWorkerId() {
+        return workerId;
+    }
+
+    @Override
+    public void setWorkerId(String workerId) {
+        this.workerId = workerId;
+    }
+
+    @Override
+    public String getAssignmentId() {
+        return assignmentId;
+    }
+
+    @Override
+    public void setAssignmentId(String assignmentId) {
+        this.assignmentId = assignmentId;
+    }
+
+    @Override
+    public String getProjectId() {
+        return annotationProjectId;
+    }
+
+    @Override
+    public String getHWA() {
+        return hitId + "|" + workerId + "|" + assignmentId;
+    }
+
+    public SubmissionState getSubmissionState() {
+        return submissionState;
+    }
+
+    public void setSubmissionState(SubmissionState submissionState) {
+        this.submissionState = submissionState;
     }
 
     public void setReviewed(LocalDateTime reviewed) {

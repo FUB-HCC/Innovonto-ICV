@@ -1,13 +1,17 @@
 package de.fuberlin.innovonto.utils.icvannotationappbackend.model;
 
+import de.fuberlin.innovonto.utils.batchmanager.api.Submission;
+import de.fuberlin.innovonto.utils.batchmanager.api.SubmissionState;
+
 import javax.persistence.*;
 import java.util.List;
+import java.util.UUID;
 
 @Entity
-public class IdeaAnnotation {
+public class IdeaAnnotation implements Submission {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private UUID id;
 
     @ManyToOne
     private Idea sourceIdea;
@@ -18,18 +22,82 @@ public class IdeaAnnotation {
     private String workerId;
     @Column(length = 2_000)
     private String assignmentId;
+    @Column(length = 2_000)
+    private String projectId;
 
     @OneToMany(cascade = CascadeType.ALL)
     private List<SemanticAnnotation> annotations;
 
     @Enumerated(EnumType.STRING)
-    private ReviewStatus reviewStatus = ReviewStatus.UNREVIEWED;
+    private SubmissionState submissionState;
 
-    public ReviewStatus getReviewStatus() {
-        return reviewStatus;
+    @Override
+    public UUID getId() {
+        return id;
     }
 
-    public void setReviewStatus(ReviewStatus reviewStatus) {
-        this.reviewStatus = reviewStatus;
+    @Override
+    public String getProjectId() {
+        return projectId;
+    }
+
+    public Idea getSourceIdea() {
+        return sourceIdea;
+    }
+
+    public void setSourceIdea(Idea sourceIdea) {
+        this.sourceIdea = sourceIdea;
+    }
+
+    @Override
+    public String getHitId() {
+        return hitId;
+    }
+
+    @Override
+    public void setHitId(String hitId) {
+        this.hitId = hitId;
+    }
+
+    @Override
+    public String getWorkerId() {
+        return workerId;
+    }
+
+    @Override
+    public void setWorkerId(String workerId) {
+        this.workerId = workerId;
+    }
+
+    @Override
+    public String getAssignmentId() {
+        return assignmentId;
+    }
+
+    @Override
+    public void setAssignmentId(String assignmentId) {
+        this.assignmentId = assignmentId;
+    }
+
+    public List<SemanticAnnotation> getAnnotations() {
+        return annotations;
+    }
+
+    public void setAnnotations(List<SemanticAnnotation> annotations) {
+        this.annotations = annotations;
+    }
+
+    @Override
+    public String getHWA() {
+        return hitId + "|" + workerId + "|" + assignmentId;
+    }
+
+    @Override
+    public SubmissionState getSubmissionState() {
+        return submissionState;
+    }
+
+    public void setSubmissionState(SubmissionState submissionState) {
+        this.submissionState = submissionState;
     }
 }

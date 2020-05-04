@@ -1,14 +1,17 @@
 package de.fuberlin.innovonto.utils.icvannotationappbackend.model;
 
+import de.fuberlin.innovonto.utils.batchmanager.api.Batch;
+import de.fuberlin.innovonto.utils.batchmanager.api.BatchState;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
 @Entity
-public class Batch {
+public class AnnotationBatch implements Batch {
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(
@@ -26,14 +29,21 @@ public class Batch {
     private String hitId;
     private String workerId;
     private String assignmentId;
-    private UUID resultsAnnotationSessionId;
+
+    @ElementCollection
+    private List<UUID> submissionIds;
 
     @ManyToMany(cascade = CascadeType.ALL)
     private List<Idea> ideas;
 
     //hibernate
-    public Batch() {
+    public AnnotationBatch() {
         this.created = LocalDateTime.now();
+    }
+
+    @Override
+    public UUID getId() {
+        return id;
     }
 
     public LocalDateTime getCreated() {
@@ -92,19 +102,28 @@ public class Batch {
         this.assignmentId = assignmentId;
     }
 
-    public UUID getResultsAnnotationSessionId() {
-        return resultsAnnotationSessionId;
-    }
-
-    public void setResultsAnnotationSessionId(UUID resultsAnnotationSessionId) {
-        this.resultsAnnotationSessionId = resultsAnnotationSessionId;
-    }
-
     public List<Idea> getIdeas() {
         return ideas;
     }
 
     public void setIdeas(List<Idea> ideas) {
         this.ideas = ideas;
+    }
+
+    public String getHWA() {
+        return hitId + "|" + workerId + "|" + assignmentId;
+    }
+
+    @Override
+    public void addSubmissionId(UUID submissionId) {
+        if (this.submissionIds == null) {
+            this.submissionIds = new ArrayList<>();
+        }
+        this.submissionIds.add(submissionId);
+    }
+
+    @Override
+    public List<UUID> getSubmissionIds() {
+        return submissionIds;
     }
 }

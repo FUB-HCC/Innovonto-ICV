@@ -1,5 +1,7 @@
 package de.fuberlin.innovonto.utils.icvannotationappbackend.api;
 
+import de.fuberlin.innovonto.utils.batchmanager.api.BatchState;
+import de.fuberlin.innovonto.utils.batchmanager.api.SubmissionState;
 import de.fuberlin.innovonto.utils.icvannotationappbackend.management.AnnotationRequirements;
 import de.fuberlin.innovonto.utils.icvannotationappbackend.model.*;
 import javassist.NotFoundException;
@@ -14,11 +16,11 @@ import java.util.Optional;
 @CrossOrigin(origins = {"http://localhost:8004", "http://localhost:9500", "https://i2m-research.imp.fu-berlin.de"})
 public class ManagementRestController {
     private final AnnotationProjectRepository annotationProjectRepository;
-    private final BatchRepository batchRepository;
+    private final AnnotationBatchRepository batchRepository;
     private final MturkAnnotationSessionRepository mturkAnnotationSessionRepository;
 
     @Autowired
-    public ManagementRestController(AnnotationProjectRepository annotationProjectRepository, BatchRepository batchRepository, MturkAnnotationSessionRepository mturkAnnotationSessionRepository) {
+    public ManagementRestController(AnnotationProjectRepository annotationProjectRepository, AnnotationBatchRepository batchRepository, MturkAnnotationSessionRepository mturkAnnotationSessionRepository) {
         this.annotationProjectRepository = annotationProjectRepository;
         this.batchRepository = batchRepository;
         this.mturkAnnotationSessionRepository = mturkAnnotationSessionRepository;
@@ -62,10 +64,10 @@ public class ManagementRestController {
             throw new NotFoundException("Could not find session with assignment: " + assignmentId);
         } else {
             final MturkAnnotationSession session = byId.get();
-            session.setReviewStatus(ReviewStatus.USABLE);
+            session.setSubmissionState(SubmissionState.USABLE);
             session.setReviewed(LocalDateTime.now());
             for (IdeaAnnotation annotation : session.getAnnotatedIdeas()) {
-                annotation.setReviewStatus(ReviewStatus.USABLE);
+                annotation.setSubmissionState(SubmissionState.USABLE);
             }
             return mturkAnnotationSessionRepository.save(session);
         }
@@ -79,24 +81,24 @@ public class ManagementRestController {
             throw new NotFoundException("Could not find session with id: " + assignmentId);
         } else {
             final MturkAnnotationSession session = byId.get();
-            Optional<Batch> byResultId = batchRepository.findByResultsAnnotationSessionId(session.getId());
+            Optional<AnnotationBatch> byResultId = batchRepository.findByAssignmentId(session.getAssignmentId());
             if (byResultId.isEmpty()) {
                 throw new NotFoundException("Could not find source batch for session with id: " + session.getId());
             } else {
                 //TODO reset-assignmentId
-                session.setReviewStatus(ReviewStatus.UNUSABLE);
+                session.setSubmissionState(SubmissionState.UNUSABLE);
                 session.setReviewed(LocalDateTime.now());
                 for (IdeaAnnotation annotation : session.getAnnotatedIdeas()) {
-                    annotation.setReviewStatus(ReviewStatus.UNUSABLE);
+                    annotation.setSubmissionState(SubmissionState.UNUSABLE);
                 }
 
-                final Batch sourceBatch = byResultId.get();
+                final AnnotationBatch sourceBatch = byResultId.get();
                 sourceBatch.setSubmitted(null);
                 sourceBatch.setBatchState(BatchState.UNALLOCATED);
                 sourceBatch.setHitId(null);
                 sourceBatch.setWorkerId(null);
                 sourceBatch.setAssignmentId(null);
-                sourceBatch.setResultsAnnotationSessionId(null);
+                //TODO reset submission state?
                 batchRepository.save(sourceBatch);
 
                 return mturkAnnotationSessionRepository.save(session);

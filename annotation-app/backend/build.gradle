@@ -32,10 +32,12 @@ configurations {
 
 repositories {
     mavenCentral()
+    maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
 }
 
 
 dependencies {
+    implementation 'de.fu-berlin.mi.hcc.innovonto.utils:batch-manager:0.0.1-SNAPSHOT'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-jetty'
