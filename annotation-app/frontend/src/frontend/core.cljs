@@ -1,7 +1,9 @@
 (ns ^:figwheel-hooks frontend.core
   (:require
-   [goog.dom :as gdom]
-   [reagent.core :as reagent :refer [atom]]))
+    [goog.dom :as gdom]
+    [reagent.core :as r]
+    [re-frame.core :as rf]
+    [reagent.dom :as rdom]))
 
 (println "This text is printed from src/frontend/core.cljs. Go ahead and edit it and see reloading in action.")
 
@@ -20,7 +22,7 @@
    [:h3 "Edit this in src-frontend-core.cljs and watch it change!"]])
 
 (defn mount [el]
-  (reagent/render-component [hello-world] el))
+  (rdom/render [hello-world] el))
 
 (defn mount-app-element []
   (when-let [el (get-app-element)]
