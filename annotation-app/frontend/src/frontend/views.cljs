@@ -1,56 +1,19 @@
 (ns frontend.views
   (:require [re-frame.core :as rf]
             [frontend.subs :as subs]
-            [antizer.reagent :as ant]))
+            [antizer.reagent :as ant]
+            [frontend.intro.views :as intro-views]
+            [frontend.annotator.views :as annotator-views]))
 
 (defn footer []
   [ant/row
    [:hr]
    [:p.footer
-    "Provided by the HCC @ FU Berlin."
+    "Provided by the HCC Group @ FU Berlin."
     [:br]
-    "If you have questions please contact us."
+    "If you have any questions please contact us."
     [:br]
     "  If you can not finish this hit due to errors, please contact us via the mturk interface."]])
-
-(defn invalid-alert []
-  [ant/alert {:type "warning" :message "Something went wrong with loading the HIT data. Please try to reload your browser window. If the error persists, please contact us via the requester contact interface."}])
-
-(defn preview-alert []
-  [ant/alert {:type "info" :message "This is the preview page! Please accept the HIT before working on the question! The Ideas here a just examples, you will get different ideas once you accept the hit."}])
-
-(defn reload-alert []
-  [ant/alert {:type "info" :message "This page was reloaded. All annotations done before are saved and will be skipped."}])
-
-(defn task-metadata []
-  (let [project-metadata @(rf/subscribe [::subs/project-metadata])]
-    (if (some? project-metadata)
-      [:div
-       [:ul
-        [:li "You will have to annotate " [:strong (get project-metadata :batch-size)] " pairs of ideas."]
-        [:li "You will receive " [:strong (str "$" (get project-metadata :compensation))] " for this task."]
-        [:li "This task will take about " [:strong (get project-metadata :estimated-time-in-minutes)] " minutes."]]]
-      [:div])))
-
-(defn task-screenshot []
-  [:span "Here be screenshot"])
-
-(defn start-button []
-  [ant/row
-   [ant/button {:size "large"}
-    [:a {:href "#/tutorial"} "Start"]]])
-
-(defn home []
-  [ant/row
-   [:div
-    [invalid-alert]
-    [:h1 "Idea Annotation App"]
-    [:div
-     [:h2 "Task Description"]
-     [:p "In this task..."]]
-    [task-metadata]
-    [task-screenshot]
-    [start-button]]])
 
 (defn tutorial []
   [ant/row
@@ -66,11 +29,11 @@
 
 (defn pages [page-name]
   (case page-name
-    :home [home]
+    :home [intro-views/intro]
     :tutorial [tutorial]
-    :annotator [annotator]
+    :annotator [annotator-views/annotator-main]
     :thank-you [thank-you]
-    [home]))
+    [intro-views/intro]))
 
 (defn annotation-app
   []

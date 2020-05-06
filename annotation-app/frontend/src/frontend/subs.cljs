@@ -11,3 +11,8 @@
   ::project-metadata
   (fn [db _]
     (:project-metadata db)))
+
+(reg-sub
+  ::preview-state
+  (fn [db _]
+    (:preview-state db)))

@@ -8,7 +8,9 @@
 
   :dependencies [[org.clojure/clojure "1.10.1"]
                  [org.clojure/clojurescript "1.10.758"]
+                 [clojure-humanize "0.2.2"]
                  [reagent "0.10.0"]
+                 [reagent-utils "0.3.3"]
                  [re-frame "0.12.0"]
                  [day8.re-frame/http-fx "v0.2.0"]
                  [simplect/antizer "3.26.12-1"]
