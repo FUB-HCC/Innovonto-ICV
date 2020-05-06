@@ -20,13 +20,24 @@ public class AnnotationProject implements Project {
 
     private LocalDateTime created;
 
-    //TODO include metadata.
+    private int estimatedTimeInMinutes;
+    private double compensation;
+    private int batchSize;
 
     @OneToMany(cascade = CascadeType.ALL)
     private List<AnnotationBatch> batches;
 
     @OneToMany(cascade = CascadeType.ALL)
     private List<MturkAnnotationSession> submissions;
+
+    //hibernate
+    public AnnotationProject() {
+    }
+
+    public AnnotationProject(String id) {
+        this.id = id;
+        this.created = LocalDateTime.now();
+    }
 
     @Override
     public String getId() {
@@ -35,6 +46,38 @@ public class AnnotationProject implements Project {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public LocalDateTime getCreated() {
+        return created;
+    }
+
+    public void setCreated(LocalDateTime created) {
+        this.created = created;
+    }
+
+    public int getEstimatedTimeInMinutes() {
+        return estimatedTimeInMinutes;
+    }
+
+    public void setEstimatedTimeInMinutes(int estimatedTimeInMinutes) {
+        this.estimatedTimeInMinutes = estimatedTimeInMinutes;
+    }
+
+    public double getCompensation() {
+        return compensation;
+    }
+
+    public void setCompensation(double compensation) {
+        this.compensation = compensation;
+    }
+
+    public int getBatchSize() {
+        return batchSize;
+    }
+
+    public void setBatchSize(int batchSize) {
+        this.batchSize = batchSize;
     }
 
     @Override

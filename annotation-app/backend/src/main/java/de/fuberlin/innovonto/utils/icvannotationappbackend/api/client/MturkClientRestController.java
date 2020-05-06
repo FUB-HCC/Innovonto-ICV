@@ -41,11 +41,11 @@ public class MturkClientRestController {
     }
 
     @ResponseBody
-    @GetMapping(value = "/rating/projectMetadata")
-    public AnnotationProject getProjectMetadata(@RequestParam String ratingProjectId) {
-        Optional<AnnotationProject> byId = projectService.findById(ratingProjectId);
+    @GetMapping(value = "/projectMetadata")
+    public AnnotationProject getProjectMetadata(@RequestParam String projectId) {
+        Optional<AnnotationProject> byId = projectService.findById(projectId);
         if (byId.isEmpty()) {
-            throw new IllegalArgumentException("No project for id: " + ratingProjectId);
+            throw new IllegalArgumentException("No project for id: " + projectId);
         } else {
             return byId.get();
         }
