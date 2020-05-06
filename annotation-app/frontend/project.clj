@@ -10,6 +10,7 @@
                  [org.clojure/clojurescript "1.10.758"]
                  [reagent "0.10.0"]
                  [re-frame "0.12.0"]
+                 [day8.re-frame/http-fx "v0.2.0"]
                  [simplect/antizer "3.26.12-1"]
                  [secretary "1.2.3"]]
 

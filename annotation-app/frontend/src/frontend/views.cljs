@@ -23,7 +23,14 @@
   [ant/alert {:type "info" :message "This page was reloaded. All annotations done before are saved and will be skipped."}])
 
 (defn task-metadata []
-  [:span "Here be task metadata"])
+  (let [project-metadata @(rf/subscribe [::subs/project-metadata])]
+    (if (some? project-metadata)
+      [:div
+       [:ul
+        [:li "You will have to annotate " [:strong (get project-metadata :batch-size)] " pairs of ideas."]
+        [:li "You will receive " [:strong (str "$" (get project-metadata :compensation))] " for this task."]
+        [:li "This task will take about " [:strong (get project-metadata :estimated-time-in-minutes)] " minutes."]]]
+      [:div])))
 
 (defn task-screenshot []
   [:span "Here be screenshot"])

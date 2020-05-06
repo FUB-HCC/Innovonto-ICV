@@ -16,19 +16,25 @@
     (.setEnabled true)))
 
 (defn get-mturk-metadata [query-params]
+  (println "Query Params: " (str query-params))
   {
-   :annotation-project-id (:annotationProjectId query-params)
-   :hit-id                (:hitId query-params)
-   :worker-id             (:workerId query-params)
-   :assignment-id         (:assignmentId query-params)
-   :turk-submit-to        (:turkSubmitTo query-params)
+   :project-id     (:projectId query-params)
+   :hit-id         (:hitId query-params)
+   :worker-id      (:workerId query-params)
+   :assignment-id  (:assignmentId query-params)
+   :turk-submit-to (:turkSubmitTo query-params)
    })
 
+;;TODO something strange happens with the prefix :/
+;;TODO build something that redirects to the "#/intro" from root.
 (defn setup-app-routes! []
   (secretary/set-config! :prefix "#")
   ;; --------------------
   ;; define routes here
   (defroute "/" [query-params]
+            (dispatch [::events/set-active-page {:page :home :mturk-metadata (get-mturk-metadata query-params)}]))
+
+  (defroute "/intro" [query-params]
             (dispatch [::events/set-active-page {:page :home :mturk-metadata (get-mturk-metadata query-params)}]))
 
   (defroute "/tutorial" []
