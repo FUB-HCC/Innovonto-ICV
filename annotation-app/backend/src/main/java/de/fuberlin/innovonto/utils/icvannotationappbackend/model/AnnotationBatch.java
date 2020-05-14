@@ -41,6 +41,12 @@ public class AnnotationBatch implements Batch {
         this.created = LocalDateTime.now();
     }
 
+    public AnnotationBatch(List<Idea> ideas) {
+        this.created = LocalDateTime.now();
+        this.ideas = ideas;
+        this.lastPublished = LocalDateTime.MIN;
+    }
+
     @Override
     public UUID getId() {
         return id;
@@ -125,5 +131,21 @@ public class AnnotationBatch implements Batch {
     @Override
     public List<UUID> getSubmissionIds() {
         return submissionIds;
+    }
+
+    @Override
+    public String toString() {
+        return "AnnotationBatch{" +
+                "id=" + id +
+                ", created=" + created +
+                ", lastPublished=" + lastPublished +
+                ", submitted=" + submitted +
+                ", batchState=" + batchState +
+                ", hitId='" + hitId + '\'' +
+                ", workerId='" + workerId + '\'' +
+                ", assignmentId='" + assignmentId + '\'' +
+                ", submissionIds=" + submissionIds +
+                ", ideas=" + ideas +
+                '}';
     }
 }

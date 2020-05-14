@@ -2,7 +2,8 @@ package de.fuberlin.innovonto.utils.icvannotationappbackend.api;
 
 import de.fuberlin.innovonto.utils.batchmanager.api.BatchState;
 import de.fuberlin.innovonto.utils.batchmanager.api.SubmissionState;
-import de.fuberlin.innovonto.utils.icvannotationappbackend.management.AnnotationRequirements;
+import de.fuberlin.innovonto.utils.icvannotationappbackend.management.AnnotationProjectRequirements;
+import de.fuberlin.innovonto.utils.icvannotationappbackend.management.RequirementsImporter;
 import de.fuberlin.innovonto.utils.icvannotationappbackend.model.*;
 import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,12 +19,14 @@ public class ManagementRestController {
     private final AnnotationProjectRepository annotationProjectRepository;
     private final AnnotationBatchRepository batchRepository;
     private final MturkAnnotationSessionRepository mturkAnnotationSessionRepository;
+    private final RequirementsImporter requirementsImporter;
 
     @Autowired
-    public ManagementRestController(AnnotationProjectRepository annotationProjectRepository, AnnotationBatchRepository batchRepository, MturkAnnotationSessionRepository mturkAnnotationSessionRepository) {
+    public ManagementRestController(AnnotationProjectRepository annotationProjectRepository, AnnotationBatchRepository batchRepository, MturkAnnotationSessionRepository mturkAnnotationSessionRepository, RequirementsImporter requirementsImporter) {
         this.annotationProjectRepository = annotationProjectRepository;
         this.batchRepository = batchRepository;
         this.mturkAnnotationSessionRepository = mturkAnnotationSessionRepository;
+        this.requirementsImporter = requirementsImporter;
     }
 
     //Upload Requirements
@@ -32,9 +35,9 @@ public class ManagementRestController {
             origins = "*",
             allowedHeaders = "*",
             methods = {RequestMethod.GET, RequestMethod.POST})
-    public AnnotationProject uploadRequirements(@RequestBody AnnotationRequirements requirements) {
-        //TODO implement.
-        return new AnnotationProject();
+    public AnnotationProject uploadRequirements(@RequestBody AnnotationProjectRequirements requirements) {
+        requirementsImporter.validateRequirements(requirements);
+        return requirementsImporter.saveRequirementsAsProject(requirements);
     }
 
     //See all RatingProjects

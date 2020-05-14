@@ -18,7 +18,7 @@ public class ExportController {
         return "not implemented";
     }
 
-    @GetMapping(value = "/usableRatingsForProject", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/usableAnnotationsForProject", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public String getUsableRatingsForProjectAsJson(@RequestParam(value = "annotationProjectId") String ratingProjectId) {
         //TODO implement

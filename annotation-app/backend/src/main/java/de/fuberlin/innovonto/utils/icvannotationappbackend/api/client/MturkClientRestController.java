@@ -5,9 +5,7 @@ import de.fuberlin.innovonto.utils.batchmanager.api.Submission;
 import de.fuberlin.innovonto.utils.batchmanager.services.BatchAllocationService;
 import de.fuberlin.innovonto.utils.batchmanager.services.SubmissionResultService;
 import de.fuberlin.innovonto.utils.common.web.MturkSesssionInformationMissingException;
-import de.fuberlin.innovonto.utils.icvannotationappbackend.model.AnnotationBatch;
-import de.fuberlin.innovonto.utils.icvannotationappbackend.model.AnnotationProject;
-import de.fuberlin.innovonto.utils.icvannotationappbackend.model.MturkAnnotationSession;
+import de.fuberlin.innovonto.utils.icvannotationappbackend.model.*;
 import de.fuberlin.innovonto.utils.icvannotationappbackend.services.JpaProjectService;
 import org.json.JSONObject;
 import org.slf4j.Logger;
@@ -17,9 +15,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 import static org.apache.commons.lang3.StringUtils.isBlank;
 
@@ -32,12 +28,14 @@ public class MturkClientRestController {
     private final BatchAllocationService batchAllocationService;
     private final SubmissionResultService submissionResultService;
     private final JpaProjectService projectService;
+    private final ChallengeRepository challengeRepository;
 
     @Autowired
-    public MturkClientRestController(BatchAllocationService batchAllocationService, SubmissionResultService submissionResultService, JpaProjectService projectService) {
+    public MturkClientRestController(BatchAllocationService batchAllocationService, SubmissionResultService submissionResultService, JpaProjectService projectService, ChallengeRepository challengeRepository) {
         this.batchAllocationService = batchAllocationService;
         this.submissionResultService = submissionResultService;
         this.projectService = projectService;
+        this.challengeRepository = challengeRepository;
     }
 
     @ResponseBody
@@ -60,8 +58,19 @@ public class MturkClientRestController {
 
         final Batch batchForCurrentAssignment = batchAllocationService.allocateBatchFor(ratingProjectId, hitId, workerId, assignmentId);
         if (batchForCurrentAssignment instanceof AnnotationBatch) {
-            //Build DTO from annotation Batch?
-            return new AnnotationBatchDTO();
+            AnnotationBatch annotationBatch = (AnnotationBatch) batchForCurrentAssignment;
+            //Get Challenges
+            final Set<String> challengeIds = new HashSet<>();
+            for (Idea idea : annotationBatch.getIdeas()) {
+                challengeIds.add(idea.getHasIdeaContest());
+            }
+            final Map<String, Challenge> challenges = new HashMap<>();
+            for (String challengeId : challengeIds) {
+                Challenge value = challengeRepository.findById(challengeId).get();
+                challenges.put(value.getId(), value);
+            }
+            //TODO shuffle (but only if it's a new and not reloaded batch)
+            return new AnnotationBatchDTO(challenges, annotationBatch.getIdeas());
         } else {
             throw new IllegalStateException("Tried to allocate a batch for a project, where the project does not match the allocation type");
         }

@@ -1,0 +1,93 @@
+{
+  "id": "mx-msc-annotation-full-ideas",
+  "challenges": [
+    {
+      "@id": "https://innovonto-core.imp.fu-berlin.de/entities/ideaContests/mx-bionic-radar",
+      "description": "The second idea contest within the Ideas-to-Market Project. The Fraunhofer FHR, which provided a new radar technology (called Bionic Radar) that uses machine learning to uniquely detect movement patterns via radar, working even in bad weather."
+    },
+    {
+      "@id": "https://innovonto-core.imp.fu-berlin.de/entities/ideaContests/mx-tco",
+      "description": "ransparent conductive oxides are materials that can be used as thin coatings to make materials and surfaces intelligent. They are transparent, conductive and flexible. TCO coatings transform surfaces from objects and rooms into conductive and therefore interactive and touch-sensitive surfaces. Due to its transparency the original look and texture of surfaces is not changed."
+    },
+    {
+      "@id": "https://innovonto-core.imp.fu-berlin.de/entities/ideaContests/mx-fabric-display",
+      "description": "Generate product ideas for an imaginary technology -- a touch-sensitive \"fabric display\" that could render high resolution images and videos on any fabric through a penny-sized connector."
+    }
+  ],
+  "ideas": [
+    {
+      "@id": "https://innovonto-core.imp.fu-berlin.de/entities/ideas/38aa2640-6efb-49ee-afd7-fb7a786cb406",
+      "@type": "gi2mo:Idea",
+      "content": "Analyze athletes with bionic radar to see what part of them is either helping or hurting them in things such as running",
+      "isDerivedFrom": "https://innovonto-core.imp.fu-berlin.de/entities/ideas/504c0112-b0bf-471d-89c0-eba61c85fa68",
+      "hasIdeaContest": "https://innovonto-core.imp.fu-berlin.de/entities/ideaContests/mx-bionic-radar"
+    },
+    {
+      "@id": "https://innovonto-core.imp.fu-berlin.de/entities/ideas/54764cfe-83f4-4a16-b9a0-2294019522dc",
+      "@type": "gi2mo:Idea",
+      "content": "Use bionic radar to identify fouls or false starts in sporting events.",
+      "isDerivedFrom": "https://innovonto-core.imp.fu-berlin.de/entities/ideas/302743e0-aa6e-4483-be7a-3735369c7679",
+      "hasIdeaContest": "https://innovonto-core.imp.fu-berlin.de/entities/ideaContests/mx-bionic-radar"
+    },
+    {
+      "@id": "https://innovonto-core.imp.fu-berlin.de/entities/ideas/e29368ec-4a13-417a-8f04-b8e5bd13fdff",
+      "@type": "gi2mo:Idea",
+      "content": "With bionic radar I will know which family member is entering the home.",
+      "isDerivedFrom": "https://innovonto-core.imp.fu-berlin.de/entities/ideas/8c768672-f341-47e4-9e5e-696bca0049b3",
+      "hasIdeaContest": "https://innovonto-core.imp.fu-berlin.de/entities/ideaContests/mx-bionic-radar"
+    },
+    {
+      "@id": "https://innovonto-core.imp.fu-berlin.de/entities/ideas/d454fe41-bec7-48c4-a6a2-9a52b12083b7",
+      "@type": "gi2mo:Idea",
+      "content": "Shippers, drivers and captains lack technical support. Bionic radar could help to achieve an efficient weight distribution on the respective means of transport, to avoid damage to goods or the safe and possibly to save fuel.",
+      "isDerivedFrom": "https://innovonto-core.imp.fu-berlin.de/entities/ideas/87cde0cb-5c48-4b86-9a6d-5bd227c9d612",
+      "hasIdeaContest": "https://innovonto-core.imp.fu-berlin.de/entities/ideaContests/mx-bionic-radar"
+    },
+    {
+      "@id": "https://innovonto-core.imp.fu-berlin.de/entities/ideas/0ff8eca7-60a4-402f-a676-abb682b6678e",
+      "@type": "gi2mo:Idea",
+      "content": "use fabric display for sports banners that can change and update according to the teams success.",
+      "isDerivedFrom": "https://innovonto-core.imp.fu-berlin.de/entities/ideas/b63d0cd7-300f-4935-a6c7-a42739f28a7d",
+      "hasIdeaContest": "https://innovonto-core.imp.fu-berlin.de/entities/ideaContests/mx-fabric-display"
+    },
+    {
+      "@id": "https://innovonto-core.imp.fu-berlin.de/entities/ideas/6afe03be-e2f0-4bd5-95f3-1eba12a0d5ed",
+      "@type": "gi2mo:Idea",
+      "content": "A fabric display hat that switches between the colors and logos of all your favorite sports teams",
+      "isDerivedFrom": "https://innovonto-core.imp.fu-berlin.de/entities/ideas/9945773c-6e0e-469c-926b-ef922634feec",
+      "hasIdeaContest": "https://innovonto-core.imp.fu-berlin.de/entities/ideaContests/mx-fabric-display"
+    },
+    {
+      "@id": "https://innovonto-core.imp.fu-berlin.de/entities/ideas/7b895e59-8e80-459b-8a66-5aace6df375c",
+      "@type": "gi2mo:Idea",
+      "content": "Imagine making flexible masks out of that fabric display and displaying someone else's face on it. Or anything else, any image could be displayed to express emotions or ideas.",
+      "isDerivedFrom": "https://innovonto-core.imp.fu-berlin.de/entities/ideas/99b3518e-497c-4a6f-8f03-1cbbc92ed0a0",
+      "hasIdeaContest": "https://innovonto-core.imp.fu-berlin.de/entities/ideaContests/mx-fabric-display"
+    },
+    {
+      "@id": "https://innovonto-core.imp.fu-berlin.de/entities/ideas/347be611-bd03-470a-bbb4-d4f6130db982",
+      "@type": "gi2mo:Idea",
+      "content": "With TCO playground equipment may have interactive buttons that allow you to play together.",
+      "isDerivedFrom": "https://innovonto-core.imp.fu-berlin.de/entities/ideas/99d88583-3b92-43b9-ae29-8219944bb886",
+      "hasIdeaContest": "https://innovonto-core.imp.fu-berlin.de/entities/ideaContests/mx-tco"
+    },
+    {
+      "@id": "https://innovonto-core.imp.fu-berlin.de/entities/ideas/2b49a20d-3777-4cf7-bc2a-d5cee05cadb7",
+      "@type": "gi2mo:Idea",
+      "content": "TCO stickers that can monitor a persons heartbeat, body temperature and other health factors.",
+      "isDerivedFrom": "https://innovonto-core.imp.fu-berlin.de/entities/ideas/837fbfb7-3f2f-43fc-875e-e366c68af711",
+      "hasIdeaContest": "https://innovonto-core.imp.fu-berlin.de/entities/ideaContests/mx-tco"
+    },
+    {
+      "@id": "https://innovonto-core.imp.fu-berlin.de/entities/ideas/48e5a37b-5041-458f-ba20-aa2f634f9028",
+      "@type": "gi2mo:Idea",
+      "content": "Many burglars break into retail stores, offices, or houses by crashing a window. This could be prevented by connecting TCO treated windows to the alarm system.",
+      "isDerivedFrom": "https://innovonto-core.imp.fu-berlin.de/entities/ideas/bce9de2c-0ee7-4328-b535-b03e712f1768",
+      "hasIdeaContest": "https://innovonto-core.imp.fu-berlin.de/entities/ideaContests/mx-tco"
+    }
+  ],
+  "goalAnnotationsPerIdea": 5,
+  "batchSize": 10,
+  "compensation": 4.0,
+  "estimatedTimeInMinutes": 20
+}
