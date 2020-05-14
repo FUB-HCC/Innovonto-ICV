@@ -1,0 +1,87 @@
+{
+  "projectId": "mx-msc-annotation-full-ideas",
+  "hitId": "h",
+  "workerId": "w",
+  "assignmentId": "a",
+  "fulltextFeedback": "nice.",
+  "clarityRating": 100,
+  "passedAttentionCheck": true,
+  "annotatedIdeas": [
+    {
+      "id": "38aa2640-6efb-49ee-afd7-fb7a786cb406",
+      "content": "Analyze athletes with bionic radar to see what part of them is either helping or hurting them in things such as running",
+      "annotations": [
+        {
+          "offset": 0,
+          "text": "Analyze",
+          "tokenSpan": {
+            "end": 0,
+            "start": 0
+          },
+          "resourceCandidates": []
+        },
+        {
+          "offset": 8,
+          "text": "athletes",
+          "tokenSpan": {
+            "start": 0,
+            "end": 0
+          },
+          "resourceCandidates": [
+            {
+              "confidence": 0.7293706047260281,
+              "label": "Athlete",
+              "offset": 8,
+              "resource": "http://dbpedia.org/resource/Athlete",
+              "source": "spotlight",
+              "text": "athletes",
+              "tokenSpan": {
+                "end": 1,
+                "start": 1
+              },
+              "selected": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "54764cfe-83f4-4a16-b9a0-2294019522dc",
+      "content": "Use bionic radar to identify fouls or false starts in sporting events.",
+      "annotations": [
+        {
+          "offset": 4,
+          "resourceCandidates": [],
+          "text": "bionic",
+          "tokenSpan": {
+            "end": 1,
+            "start": 1
+          }
+        },
+        {
+          "offset": 11,
+          "resourceCandidates": [
+            {
+              "confidence": 0.9994686552400693,
+              "label": "Radar",
+              "offset": 11,
+              "resource": "http://dbpedia.org/resource/Radar",
+              "source": "spotlight",
+              "text": "radar",
+              "tokenSpan": {
+                "end": 2,
+                "start": 2
+              },
+              "selected": true
+            }
+          ],
+          "text": "radar",
+          "tokenSpan": {
+            "end": 2,
+            "start": 2
+          }
+        }
+      ]
+    }
+  ]
+}

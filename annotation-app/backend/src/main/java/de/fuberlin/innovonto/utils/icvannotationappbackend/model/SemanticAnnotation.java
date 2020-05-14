@@ -18,10 +18,14 @@ public class SemanticAnnotation {
     private long id;
 
     //TODO state: rejected if ResourceCandidate.filterBy(selected) -> empty List
+
     @Column(length = 2_000)
     private String text;
     @Column(name = "token_offset")
     private long offset;
+
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private TokenSpan tokenSpan;
 
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<ResourceCandidate> resourceCandidates;
@@ -61,5 +65,13 @@ public class SemanticAnnotation {
 
     public void setResourceCandidates(List<ResourceCandidate> resourceCandidates) {
         this.resourceCandidates = resourceCandidates;
+    }
+
+    public TokenSpan getTokenSpan() {
+        return tokenSpan;
+    }
+
+    public void setTokenSpan(TokenSpan tokenSpan) {
+        this.tokenSpan = tokenSpan;
     }
 }

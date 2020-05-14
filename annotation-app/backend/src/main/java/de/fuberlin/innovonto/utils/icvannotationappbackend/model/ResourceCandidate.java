@@ -1,7 +1,5 @@
 package de.fuberlin.innovonto.utils.icvannotationappbackend.model;
 
-import org.json.JSONObject;
-
 import javax.persistence.*;
 
 /*
@@ -36,6 +34,12 @@ public class ResourceCandidate {
     private String resource;
 
     @Column
+    private String label;
+
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private TokenSpan tokenSpan;
+
+    @Column
     private String source;
     @Column
     private double confidence;
@@ -43,10 +47,6 @@ public class ResourceCandidate {
     private boolean selected;
 
     public ResourceCandidate() {
-    }
-
-    public ResourceCandidate(JSONObject input) {
-        //TODO
     }
 
     public long getId() {
@@ -99,5 +99,13 @@ public class ResourceCandidate {
 
     public void setSource(String source) {
         this.source = source;
+    }
+
+    public TokenSpan getTokenSpan() {
+        return tokenSpan;
+    }
+
+    public void setTokenSpan(TokenSpan tokenSpan) {
+        this.tokenSpan = tokenSpan;
     }
 }

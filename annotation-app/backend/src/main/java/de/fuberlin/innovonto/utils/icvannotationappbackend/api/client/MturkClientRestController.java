@@ -2,6 +2,7 @@ package de.fuberlin.innovonto.utils.icvannotationappbackend.api.client;
 
 import de.fuberlin.innovonto.utils.batchmanager.api.Batch;
 import de.fuberlin.innovonto.utils.batchmanager.api.Submission;
+import de.fuberlin.innovonto.utils.batchmanager.api.SubmissionState;
 import de.fuberlin.innovonto.utils.batchmanager.services.BatchAllocationService;
 import de.fuberlin.innovonto.utils.batchmanager.services.SubmissionResultService;
 import de.fuberlin.innovonto.utils.common.web.MturkSesssionInformationMissingException;
@@ -15,6 +16,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.time.LocalDateTime;
 import java.util.*;
 
 import static org.apache.commons.lang3.StringUtils.isBlank;
@@ -28,13 +30,15 @@ public class MturkClientRestController {
     private final BatchAllocationService batchAllocationService;
     private final SubmissionResultService submissionResultService;
     private final JpaProjectService projectService;
+    private final IdeaRepository ideaRepository;
     private final ChallengeRepository challengeRepository;
 
     @Autowired
-    public MturkClientRestController(BatchAllocationService batchAllocationService, SubmissionResultService submissionResultService, JpaProjectService projectService, ChallengeRepository challengeRepository) {
+    public MturkClientRestController(BatchAllocationService batchAllocationService, SubmissionResultService submissionResultService, JpaProjectService projectService, IdeaRepository ideaRepository, ChallengeRepository challengeRepository) {
         this.batchAllocationService = batchAllocationService;
         this.submissionResultService = submissionResultService;
         this.projectService = projectService;
+        this.ideaRepository = ideaRepository;
         this.challengeRepository = challengeRepository;
     }
 
@@ -85,10 +89,30 @@ public class MturkClientRestController {
         if (submissionData == null || isBlank(submissionData.getHitId()) || isBlank(submissionData.getAssignmentId()) || isBlank(submissionData.getWorkerId())) {
             throw new MturkSesssionInformationMissingException("Could not find mturk session information (HWA) on the submissionData object.");
         }
-        //TODO build a submission from the existing
-        Submission savedSubmission = submissionResultService.updateProjectAndBatchAndSave(null);
-        //TODO update things?
-        return savedSubmission;
+        final MturkAnnotationSession submission = new MturkAnnotationSession();
+        submission.setHitId(submissionData.getHitId());
+        submission.setWorkerId(submissionData.getWorkerId());
+        submission.setAssignmentId(submissionData.getAssignmentId());
+        submission.setProjectId(submissionData.getProjectId());
+        submission.setSubmitted(LocalDateTime.now());
+        submission.setAnnotatedIdeas(getAnnotatedIdeasFrom(submissionData));
+        return submissionResultService.updateProjectAndBatchAndSave(submission);
+    }
+
+    private List<IdeaAnnotation> getAnnotatedIdeasFrom(MturkAnnotationSessionResultDTO submissionData) {
+        final List<IdeaAnnotation> output = new ArrayList<>();
+        for (AnnotatedIdeaDTO ideaDTO : submissionData.getAnnotatedIdeas()) {
+            final IdeaAnnotation ideaAnnotation = new IdeaAnnotation();
+            ideaAnnotation.setSourceIdea(ideaRepository.findById(ideaDTO.getId()).get());
+            ideaAnnotation.setHitId(submissionData.getHitId());
+            ideaAnnotation.setWorkerId(submissionData.getWorkerId());
+            ideaAnnotation.setAssignmentId(submissionData.getAssignmentId());
+            ideaAnnotation.setProjectId(submissionData.getProjectId());
+            ideaAnnotation.setSubmissionState(SubmissionState.UNREVIEWED);
+            ideaAnnotation.setAnnotations(ideaDTO.getAnnotations());
+            output.add(ideaAnnotation);
+        }
+        return output;
     }
 
     //Debug View to See Mturk Submit Data:

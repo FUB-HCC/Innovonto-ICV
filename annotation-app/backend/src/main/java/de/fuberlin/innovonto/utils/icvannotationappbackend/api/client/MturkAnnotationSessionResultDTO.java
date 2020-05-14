@@ -7,7 +7,7 @@ public class MturkAnnotationSessionResultDTO {
 
     //MTURK:
     @NotBlank
-    private String annotationProjectId;
+    private String projectId;
     @NotBlank
     private String hitId;
     @NotBlank
@@ -27,12 +27,12 @@ public class MturkAnnotationSessionResultDTO {
     public MturkAnnotationSessionResultDTO() {
     }
 
-    public String getAnnotationProjectId() {
-        return annotationProjectId;
+    public String getProjectId() {
+        return projectId;
     }
 
-    public void setAnnotationProjectId(String annotationProjectId) {
-        this.annotationProjectId = annotationProjectId;
+    public void setProjectId(String projectId) {
+        this.projectId = projectId;
     }
 
     public String getHitId() {

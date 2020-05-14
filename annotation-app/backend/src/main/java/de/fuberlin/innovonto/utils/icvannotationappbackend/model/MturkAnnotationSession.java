@@ -32,7 +32,7 @@ public class MturkAnnotationSession implements Submission {
     @NotBlank
     private String assignmentId;
     @NotBlank
-    private String annotationProjectId;
+    private String projectId;
 
     //Survey
     //TODO survey.
@@ -49,6 +49,14 @@ public class MturkAnnotationSession implements Submission {
 
     public UUID getId() {
         return id;
+    }
+
+    public LocalDateTime getSubmitted() {
+        return submitted;
+    }
+
+    public void setSubmitted(LocalDateTime submitted) {
+        this.submitted = submitted;
     }
 
     @Override
@@ -83,7 +91,11 @@ public class MturkAnnotationSession implements Submission {
 
     @Override
     public String getProjectId() {
-        return annotationProjectId;
+        return projectId;
+    }
+
+    public void setProjectId(String projectId) {
+        this.projectId = projectId;
     }
 
     @Override

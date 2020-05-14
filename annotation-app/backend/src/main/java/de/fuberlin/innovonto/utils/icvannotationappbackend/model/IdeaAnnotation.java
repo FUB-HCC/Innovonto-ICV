@@ -1,16 +1,20 @@
 package de.fuberlin.innovonto.utils.icvannotationappbackend.model;
 
-import de.fuberlin.innovonto.utils.batchmanager.api.Submission;
 import de.fuberlin.innovonto.utils.batchmanager.api.SubmissionState;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.List;
 import java.util.UUID;
 
 @Entity
-public class IdeaAnnotation implements Submission {
+public class IdeaAnnotation {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(
+            name = "UUID",
+            strategy = "de.fuberlin.innovonto.utils.common.FallbackUUIDGenerator"
+    )
     private UUID id;
 
     @ManyToOne
@@ -31,12 +35,10 @@ public class IdeaAnnotation implements Submission {
     @Enumerated(EnumType.STRING)
     private SubmissionState submissionState;
 
-    @Override
     public UUID getId() {
         return id;
     }
 
-    @Override
     public String getProjectId() {
         return projectId;
     }
@@ -49,32 +51,26 @@ public class IdeaAnnotation implements Submission {
         this.sourceIdea = sourceIdea;
     }
 
-    @Override
     public String getHitId() {
         return hitId;
     }
 
-    @Override
     public void setHitId(String hitId) {
         this.hitId = hitId;
     }
 
-    @Override
     public String getWorkerId() {
         return workerId;
     }
 
-    @Override
     public void setWorkerId(String workerId) {
         this.workerId = workerId;
     }
 
-    @Override
     public String getAssignmentId() {
         return assignmentId;
     }
 
-    @Override
     public void setAssignmentId(String assignmentId) {
         this.assignmentId = assignmentId;
     }
@@ -87,17 +83,19 @@ public class IdeaAnnotation implements Submission {
         this.annotations = annotations;
     }
 
-    @Override
     public String getHWA() {
         return hitId + "|" + workerId + "|" + assignmentId;
     }
 
-    @Override
     public SubmissionState getSubmissionState() {
         return submissionState;
     }
 
     public void setSubmissionState(SubmissionState submissionState) {
         this.submissionState = submissionState;
+    }
+
+    public void setProjectId(String projectId) {
+        this.projectId = projectId;
     }
 }
