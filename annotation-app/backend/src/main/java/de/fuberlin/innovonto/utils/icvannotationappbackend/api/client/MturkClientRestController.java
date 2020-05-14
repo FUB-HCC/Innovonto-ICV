@@ -96,6 +96,8 @@ public class MturkClientRestController {
         submission.setProjectId(submissionData.getProjectId());
         submission.setSubmitted(LocalDateTime.now());
         submission.setAnnotatedIdeas(getAnnotatedIdeasFrom(submissionData));
+        submission.setFulltextFeedback(submissionData.getFulltextFeedback());
+        submission.setClarityRating(submissionData.getClarityRating());
         return submissionResultService.updateProjectAndBatchAndSave(submission);
     }
 

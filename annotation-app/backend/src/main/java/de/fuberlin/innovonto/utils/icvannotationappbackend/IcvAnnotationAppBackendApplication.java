@@ -9,6 +9,9 @@ import de.fuberlin.innovonto.utils.icvannotationappbackend.model.AnnotationBatch
 import de.fuberlin.innovonto.utils.icvannotationappbackend.model.AnnotationProject;
 import de.fuberlin.innovonto.utils.icvannotationappbackend.model.AnnotationProjectRepository;
 import de.fuberlin.innovonto.utils.icvannotationappbackend.model.MturkAnnotationSession;
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+import io.swagger.v3.oas.annotations.info.Info;
+import io.swagger.v3.oas.annotations.servers.Server;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -16,6 +19,22 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
+//For more open API stuff see
+//https://github.com/swagger-api/swagger-core/wiki/Swagger-2.X---Annotations#OpenAPIDefinition
+//https://springdoc.org/faq.html#how-can-i-configure-swagger-ui
+@OpenAPIDefinition(info = @Info(
+        title = "Idea Annotation App Backend",
+        version = "0.0.1-SNAPSHOT"),
+        servers = {
+                @Server(
+                        description = "Development",
+                        url = "http://localhost:8004"
+                ),
+                @Server(
+                        description = "Live",
+                        url = "https://i2m-research.imp.fu-berlin.de"
+                )
+        })
 public class IcvAnnotationAppBackendApplication {
 
     public static void main(String[] args) {

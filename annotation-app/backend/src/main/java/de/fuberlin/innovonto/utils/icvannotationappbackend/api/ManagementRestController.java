@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/management/")
@@ -54,17 +55,16 @@ public class ManagementRestController {
 
     //TODO add Display Object for MturkRating Session, to make reviewing a session easier.
     @GetMapping("/mturkAnnotationSessions/byAssignment")
-    public Optional<MturkAnnotationSession> getByAssignmentId(@RequestParam String assignmentId) {
-        return mturkAnnotationSessionRepository.findByAssignmentId(assignmentId);
+    public Iterable<MturkAnnotationSession> getByAssignmentId(@RequestParam String assignmentId) {
+        return mturkAnnotationSessionRepository.findAllByAssignmentIdOrderBySubmittedDesc(assignmentId);
     }
 
 
-    @GetMapping("/mturkAnnotationSessions/{assignmentId}/set-usable")
-    public MturkAnnotationSession setUsable(@PathVariable String assignmentId) throws NotFoundException {
-        //TODO what to do if there are multiple sessions for an assignmentId?
-        Optional<MturkAnnotationSession> byId = mturkAnnotationSessionRepository.findByAssignmentId(assignmentId);
+    @GetMapping("/mturkAnnotationSessions/{sessionId}/set-usable")
+    public MturkAnnotationSession setUsable(@PathVariable String sessionId) throws NotFoundException {
+        Optional<MturkAnnotationSession> byId = mturkAnnotationSessionRepository.findById(UUID.fromString(sessionId));
         if (byId.isEmpty()) {
-            throw new NotFoundException("Could not find session with assignment: " + assignmentId);
+            throw new NotFoundException("Could not find session with sessionId: " + sessionId);
         } else {
             final MturkAnnotationSession session = byId.get();
             session.setSubmissionState(SubmissionState.USABLE);
@@ -76,19 +76,17 @@ public class ManagementRestController {
         }
     }
 
-    @GetMapping("/mturkRatingSessions/{assignmentId}/set-unusable")
-    public MturkAnnotationSession setUnusable(@PathVariable String assignmentId) throws NotFoundException {
-        Optional<MturkAnnotationSession> byId = mturkAnnotationSessionRepository.findByAssignmentId(assignmentId);
-        //TODO what to do if there are multiple sessions for an assignmentId?
+    @GetMapping("/mturkAnnotationSessions/{sessionId}/set-unusable")
+    public MturkAnnotationSession setUnusable(@PathVariable String sessionId) throws NotFoundException {
+        Optional<MturkAnnotationSession> byId = mturkAnnotationSessionRepository.findById(UUID.fromString(sessionId));
         if (byId.isEmpty()) {
-            throw new NotFoundException("Could not find session with id: " + assignmentId);
+            throw new NotFoundException("Could not find session with id: " + sessionId);
         } else {
             final MturkAnnotationSession session = byId.get();
             Optional<AnnotationBatch> byResultId = batchRepository.findByAssignmentId(session.getAssignmentId());
             if (byResultId.isEmpty()) {
                 throw new NotFoundException("Could not find source batch for session with id: " + session.getId());
             } else {
-                //TODO reset-assignmentId
                 session.setSubmissionState(SubmissionState.UNUSABLE);
                 session.setReviewed(LocalDateTime.now());
                 for (IdeaAnnotation annotation : session.getAnnotatedIdeas()) {
@@ -101,7 +99,6 @@ public class ManagementRestController {
                 sourceBatch.setHitId(null);
                 sourceBatch.setWorkerId(null);
                 sourceBatch.setAssignmentId(null);
-                //TODO reset submission state?
                 batchRepository.save(sourceBatch);
 
                 return mturkAnnotationSessionRepository.save(session);

@@ -35,7 +35,8 @@ public class MturkAnnotationSession implements Submission {
     private String projectId;
 
     //Survey
-    //TODO survey.
+    private String fulltextFeedback;
+    private int clarityRating;
 
     @Enumerated(EnumType.STRING)
     private SubmissionState submissionState = SubmissionState.UNREVIEWED;
@@ -121,5 +122,25 @@ public class MturkAnnotationSession implements Submission {
 
     public void setAnnotatedIdeas(List<IdeaAnnotation> annotatedIdeas) {
         this.annotatedIdeas = annotatedIdeas;
+    }
+
+    public LocalDateTime getReviewed() {
+        return reviewed;
+    }
+
+    public String getFulltextFeedback() {
+        return fulltextFeedback;
+    }
+
+    public void setFulltextFeedback(String fulltextFeedback) {
+        this.fulltextFeedback = fulltextFeedback;
+    }
+
+    public int getClarityRating() {
+        return clarityRating;
+    }
+
+    public void setClarityRating(int clarityRating) {
+        this.clarityRating = clarityRating;
     }
 }

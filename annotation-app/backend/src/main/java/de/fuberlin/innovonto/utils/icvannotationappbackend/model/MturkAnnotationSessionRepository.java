@@ -7,7 +7,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 public interface MturkAnnotationSessionRepository extends CrudRepository<MturkAnnotationSession, UUID> {
-    Optional<MturkAnnotationSession> findByAssignmentId(String assignmentId);
+    Iterable<MturkAnnotationSession> findAllByAssignmentIdOrderBySubmittedDesc(String assignmentId);
     Iterable<MturkAnnotationSession> findAllByProjectIdAndSubmissionState(String annotationProjectId, SubmissionState submissionState);
     Optional<MturkAnnotationSession> findByHitIdAndWorkerIdAndAssignmentId(String hitId, String workerId, String assignmentId);
 }
