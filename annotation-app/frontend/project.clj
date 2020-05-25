@@ -13,6 +13,7 @@
                  [reagent-utils "0.3.3"]
                  [re-frame "0.12.0"]
                  [day8.re-frame/http-fx "v0.2.0"]
+                 [akiroz.re-frame/storage "0.1.4"]
                  [simplect/antizer "3.26.12-1"]
                  [secretary "1.2.3"]]
 

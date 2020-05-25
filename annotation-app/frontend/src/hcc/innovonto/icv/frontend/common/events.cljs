@@ -166,7 +166,7 @@
   ::annotate-request
   (fn [{:keys [db]} [_ input-text]]
     (do
-      (println (str "Annotate Request: " input-text " - " db))
+      (println (str "Annotate Request: " input-text))
       {:db         (update-in db [:icv] assoc :state "LOADING")
        :http-xhrio {:method          :get
                     :uri             (:annotate config/urlconfig)

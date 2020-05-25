@@ -12,9 +12,13 @@
 (defn reload-alert []
   [ant/alert {:type "info" :message "This page was reloaded. All annotations done before are saved and will be skipped."}])
 
+(defn empty-alert []
+  [:span " "])
+
 (defn alert-for [preview-state]
   (case preview-state
-    :start [reload-alert]
+    :reload [reload-alert]
+    :start [empty-alert]
     :preview [preview-alert]
     [invalid-alert]))
 
@@ -31,11 +35,15 @@
 (defn task-screenshot []
   [:span "Here be screenshot"])
 
-;;(not= preview-state :start)
+;TODO reload: -> continue
 (defn start-button [preview-state]
-  [ant/row
-   [ant/button {:size "large" :type "primary" :disabled (not= preview-state :start)}
-    [:a {:href "#/tutorial"} "Start"]]])
+  (case preview-state
+    :reload [ant/row
+             [ant/button {:size "large" :type "primary"}
+              [:a {:href "#/annotator"} "Continue"]]]
+    [ant/row
+     [ant/button {:size "large" :type "primary" :disabled (not= preview-state :start)}
+      [:a {:href "#/tutorial"} "Start"]]]))
 
 (defn intro []
   (let [preview-state @(rf/subscribe [::subs/preview-state])]
@@ -45,7 +53,7 @@
       [:h1 "Annotate Idea Texts"]
       [:div
        [:h2 "Task Description"]
-       [:p "In different studies we collected idea texts for different challenges. Your task today is to determine
+       [:p "In different studies we collected idea texts for different challenges. Your task for this HIT is to determine
        which terms (concepts) are used within these texts by selecting the most correct term for a word from a list."]]
       [task-metadata]
       [task-screenshot]
