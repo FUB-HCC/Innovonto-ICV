@@ -65,6 +65,7 @@
   (let [reload (same-hwap? request-mturk-metadata store-mturk-metadata)]
     (if reload
       ;;RELOAD: leave everything as it was before
+      ;;TODO load the state from local-storage into the db.
       {:db (-> db
                (assoc :active-page :home)
                (assoc :preview-state :reload))}
@@ -75,6 +76,7 @@
                        (assoc :preview-state :start)
                        (assoc :mturk-metadata request-mturk-metadata))
        :http-xhrio (project-metadata-request (:project-id request-mturk-metadata))
+       ;;this deletes the old store:
        :store      {:mturk-metadata request-mturk-metadata}
        })))
 

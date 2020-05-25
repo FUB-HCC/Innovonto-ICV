@@ -33,9 +33,10 @@
       [:div])))
 
 (defn task-screenshot []
-  [:span "Here be screenshot"])
+  [:div.screenshot-container
+   [:img.img.img-thumbnail {:src "/images/Annotator-Screenshot.png"}]
+   [:p "Screenshot of the Annotation Interface"]])
 
-;TODO reload: -> continue
 (defn start-button [preview-state]
   (case preview-state
     :reload [ant/row
