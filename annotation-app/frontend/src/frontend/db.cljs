@@ -6,6 +6,7 @@
                  :active-page      :home
                  :icv              {:state                              "INITIAL"
                                     :current-annotation-candidate-index 0}
+                 :tracking-events   []
                  :annotator-config {
                                     :concept-representation "image-and-description"
                                     :sort-by                "confidence"
