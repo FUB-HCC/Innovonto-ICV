@@ -41,6 +41,10 @@
        {:dispatch [::load-icv-for-idea (inc current-idea-index)]}))))
 
 
+;;TODO on submit: save the result in localstorage
+(defn to-annotation-result [icv-state]
+  )
+
 ;;TODO refactor config.
 (re-frame/reg-event-fx
  ::submit-concept-validation
