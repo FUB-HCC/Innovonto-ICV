@@ -15,7 +15,7 @@ import static de.fuberlin.innovonto.utils.common.JsonLDUtils.framedJsonLdOutput;
 
 @RestController
 @RequestMapping("/api/management/export")
-@CrossOrigin(origins = {"http://localhost:8004", "http://localhost:9500", "https://i2m-research.imp.fu-berlin.de"})
+@CrossOrigin(origins = {"http://localhost:9002", "http://localhost:9500", "https://i2m-research.imp.fu-berlin.de"})
 public class ExportController {
     private final AnnotationExportService annotationExportService;
 
