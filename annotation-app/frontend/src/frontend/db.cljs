@@ -1,3 +1,18 @@
 (ns frontend.db)
 
-(def default-db {:active-page :home})  ;; what gets put into app-db by default.
+;;ICV STATES: INITIAL, ANNOTATING, ALL-ANNOTATED, ERROR
+(def default-db {
+                 :sync-state       :up-to-date
+                 :active-page      :home
+                 :icv              {:state                              "INITIAL"
+                                    :current-annotation-candidate-index 0}
+                 :annotator-config {
+                                    :concept-representation "image-and-description"
+                                    :sort-by                "confidence"
+                                    :auto-annotation        "none"
+                                    }
+                 :batch            {
+                                    :current-idea-index 0
+                                    :texts              [{:id "b673e422f163a7645a4b5edb01aa302f" :text "A window where you can control how much light gets in by swiping."}
+                                                         {:id "8c5e85472e2c730de9625212496d3fa3" :text "A portable piano"}]
+                                    }})

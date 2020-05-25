@@ -14,10 +14,6 @@ body {
     padding: 0 2rem;
 }
 
-.timer {
-    padding: 2rem 1.5rem;
-}
-
 .ant-progress-status-exception .ant-progress-circle-path {
     stroke: #fa8c16;
 }

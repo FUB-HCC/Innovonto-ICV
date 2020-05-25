@@ -17,29 +17,29 @@
 (re-frame/reg-sub
  ::all-ideas-handled?
  (fn [db]
-   (empty (unhandled-texts (:texts (:annotator-config db))))))
+   (empty (unhandled-texts (:texts (:batch db))))))
 
 (re-frame/reg-sub
  ::is-last-idea?
  (fn [db]
-   (let [current-idea-index (:current-idea-index (:annotator-config db))
-         ideas              (:texts (:annotator-config db))]
+   (let [current-idea-index (:current-idea-index (:batch db))
+         ideas              (:texts (:batch db))]
      (= current-idea-index (- (count ideas) 1)))))
 
 (re-frame/reg-sub
  ::number-handled
  (fn [db]
-   (count (handled-texts (:texts (:annotator-config db))))))
+   (count (handled-texts (:texts (:batch db))))))
 
 (re-frame/reg-sub
  ::number-unhandled
  (fn [db]
-   (count (unhandled-texts (:texts (:annotator-config db))))))
+   (count (unhandled-texts (:texts (:batch db))))))
 
 (re-frame/reg-sub
  ::percentage-done
  (fn [db]
-   (let [texts   (:texts (:annotator-config db))
+   (let [texts   (:texts (:batch db))
          handled (handled-texts texts)]
      (if (= (count handled) 0)
        0
@@ -54,4 +54,4 @@
 (re-frame/reg-sub
   ::current-idea-index
  (fn [db]
-   (:current-idea-index (:annotator-config db))))
+   (:current-idea-index (:batch db))))

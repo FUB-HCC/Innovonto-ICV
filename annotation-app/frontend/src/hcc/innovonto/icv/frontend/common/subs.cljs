@@ -52,4 +52,4 @@
 (re-frame/reg-sub
  ::concept-representation
  (fn [db]
-   (:conceptRepresentation (:config db))))
+   (:concept-representation (:annotator-config db))))

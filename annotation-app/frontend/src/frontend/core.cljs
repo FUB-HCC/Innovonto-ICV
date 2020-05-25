@@ -23,7 +23,7 @@
   (rf/dispatch-sync [::frontend.events/initialize-db])
   (mount-app-element))
 
-(init!)
+(defonce init? (init!))
 
 (defn ^:after-load on-reload []
   ;;(rf/clear-subscription-cache!)

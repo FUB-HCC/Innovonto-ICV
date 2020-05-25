@@ -3,7 +3,7 @@
             [day8.re-frame.http-fx]
             [ajax.core :as ajax]
             [hcc.innovonto.icv.frontend.common.tracking.core :as tracking]
-            [hcc.innovonto.icv.frontend.common.config :as config]))
+            [frontend.config :as config]))
 
 (re-frame/reg-event-db
   ::reset
@@ -129,11 +129,11 @@
   (-> response
       (sort-by-offset)
       (add-annotation-candidate-ids)
-      (remove-resource-candidates-without-images (:conceptRepresentation config))
+      (remove-resource-candidates-without-images (:concept-representation config))
       (sort-resource-candidates-by (:sort-by config))
       (add-resource-candidate-ids)
       (add-state)
-      (auto-annotate (:autoAnnotation config))))
+      (auto-annotate (:auto-annotation config))))
 
 (defn response-to-chunks [response]
   (to-chunks (:text response) (:annotation_candidates response) '[] 0))
@@ -143,8 +143,8 @@
 (re-frame/reg-event-fx
   ::annotation-successful
   (fn [{:keys [db]} [_ response]]
-    (let [response-with-ids (preprocess response (:config db))]
-      (println (str "Response: " response-with-ids))
+    (let [response-with-ids (preprocess response (:annotator-config db))]
+      ;;(println (str "Response: " response-with-ids))
       {:db       (-> db
                      (assoc :sync-state :up-to-date)
                      (assoc-in [:icv :input] (:text response))
@@ -169,7 +169,8 @@
       (println (str "Annotate Request: " input-text " - " db))
       {:db         (update-in db [:icv] assoc :state "LOADING")
        :http-xhrio {:method          :get
-                    :uri             (str (:annotate config/urlconfig) "?text=" input-text "&timerValue=" (:seconds (:timer db)))
+                    :uri             (:annotate config/urlconfig)
+                    :params          {:text input-text}
                     :format          (ajax/json-request-format)
                     :response-format (ajax/json-response-format {:keywords? true})
                     :on-success      [::annotation-successful]
@@ -213,10 +214,9 @@
     (do
       (println "submit-validated-resource-candidates" id)
       {:db         (update-in db [:icv :annotation-candidates] assoc id (assoc (:current-annotation-candidate (:icv db)) :state "validated"))
-       :dispatch-n [[::tracking/track {:type       :validate-annotation-candidate
-                                       :timerValue (:seconds (:timer db))
-                                       :id         id
-                                       :text       (:text (:current-annotation-candidate (:icv db)))}]
+       :dispatch-n [[::tracking/track {:type :validate-annotation-candidate
+                                       :id   id
+                                       :text (:text (:current-annotation-candidate (:icv db)))}]
                     [::move-to-next-annotation-candidate]]})))
 
 (re-frame/reg-event-fx
@@ -225,10 +225,9 @@
     (do
       (println "reject-annotation-candidate" id)
       {:db         (update-in db [:icv :annotation-candidates] assoc id (assoc (:current-annotation-candidate (:icv db)) :state "rejected"))
-       :dispatch-n [[::tracking/track {:type       :reject-annotation-candidate
-                                       :timerValue (:seconds (:timer db))
-                                       :id         id
-                                       :text       (:text (:current-annotation-candidate (:icv db)))}]
+       :dispatch-n [[::tracking/track {:type :reject-annotation-candidate
+                                       :id   id
+                                       :text (:text (:current-annotation-candidate (:icv db)))}]
                     [::move-to-next-annotation-candidate]]})))
 
 ;; RESOURCE_CANDIDATES
@@ -238,21 +237,19 @@
     (let [resource-candidate (nth (:resource_candidates (:current-annotation-candidate (:icv db))) id)]
       (println "deselect-resource-candidate!" id)
       {:db       (update-in db [:icv :current-annotation-candidate :resource_candidates] assoc id (dissoc resource-candidate :state))
-       :dispatch [::tracking/track {:type       :deselect-resource-candidate
-                                    :timerValue (:seconds (:timer db))
-                                    :id         id
-                                    :resource   (:resource resource-candidate)}]})))
+       :dispatch [::tracking/track {:type     :deselect-resource-candidate
+                                    :id       id
+                                    :resource (:resource resource-candidate)}]})))
 
 (re-frame/reg-event-fx
   ::select-resource-candidate
   (fn [{:keys [db]} [_ id]]
     (let [resource-candidate (nth (:resource_candidates (:current-annotation-candidate (:icv db))) id)]
       (println "select-resource-candidate!" id)
-      {:db         (update-in db [:icv :current-annotation-candidate :resource_candidates] assoc id (assoc resource-candidate :state "selected"))
-       :dispatch [::tracking/track {:type       :select-resource-candidate
-                                    :timerValue (:seconds (:timer db))
-                                    :id         id
-                                    :resource   (:resource resource-candidate)}]})))
+      {:db       (update-in db [:icv :current-annotation-candidate :resource_candidates] assoc id (assoc resource-candidate :state "selected"))
+       :dispatch [::tracking/track {:type     :select-resource-candidate
+                                    :id       id
+                                    :resource (:resource resource-candidate)}]})))
 
 (re-frame/reg-event-db
   ::save-concept-validation-successful
@@ -294,6 +291,7 @@
    :annotations (to-annotations (:annotation-candidates icv-state))})
 
 
+;;TODO refactor.
 (defn to-backend-config [config]
   {:challenge             (:challenge config)
    :conceptRepresentation (:conceptRepresentation config)
@@ -303,6 +301,7 @@
 ;;TODO dispatch an extra event, without a handler (to be handled by the downstream app
 ;;TODO idea-id? TODO make idea-submit configurable?
 ;;TODO dispatch an idea submit with the full icv result
+;;TODO build a result datatype from the current state of the db.
 ;;TODO add submit-concept-validation config without idea submit.
 (re-frame/reg-event-fx
   ::submit-concept-validation
@@ -311,11 +310,10 @@
       (println "Submitted Concept Validation!")
       {:db         db
        :http-xhrio {:method          :post
-                    :uri             (str "/hit/api/ideas/")
+                    :uri             (:submit config/urlconfig)
                     :format          (ajax/json-request-format)
-                    :params          {:timerValue (:seconds (:timer db))
-                                      :icvResult  (to-result (:icv db))
-                                      :config     (to-backend-config (:config db))}
+                    :params          {:icvResult (to-result (:icv db))
+                                      :config    (to-backend-config (:config db))}
                     :response-format (ajax/json-response-format {:keywords? true})
                     :on-success      [::save-concept-validation-successful]
                     :on-failure      [::save-concept-validation-failed]}
