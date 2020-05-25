@@ -26,7 +26,7 @@
      (println
       (str "Saved Concept Validation: moving on to: " current-idea-index " : " (count ideas)))
      (if (was-last-submit? current-idea-index ideas)
-       {:dispatch [::redirect-to-survey-page]}
+       {:dispatch [:frontend.events/set-active-page {:page :thank-you}]}
        {:dispatch [::load-icv-for-idea (inc current-idea-index)]}))))
 
 (re-frame/reg-event-fx
@@ -37,7 +37,7 @@
      (println
       (str "Saving Concept Validation FAILED!: moving on to: " current-idea-index " : " (count ideas)))
      (if (was-last-submit? current-idea-index ideas)
-       {:dispatch [::redirect-to-survey-page]}
+       {:dispatch [:frontend.events/set-active-page {:page :thank-you}]}
        {:dispatch [::load-icv-for-idea (inc current-idea-index)]}))))
 
 
@@ -75,15 +75,3 @@
                       (assoc-in [:batch :current-idea-index] text-index))
 
         :dispatch [::icv-events/annotate-request (:text idea)]}))))
-
-
-(defn redirect! [loc]
-  (set! (.-location js/window) loc))
-
-;;TODO secretary.
-(re-frame/reg-event-db
- ::redirect-to-survey-page
- (fn [db _]
-   (do
-     (redirect! "survey.html"))
-   db))

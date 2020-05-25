@@ -3,7 +3,7 @@
 
 
 
-;;TODO include current timestamp.
+;;TODO include current timestamp as coeffect.
 (rf/reg-event-db
   ::track
   (fn [db [event payload]]
