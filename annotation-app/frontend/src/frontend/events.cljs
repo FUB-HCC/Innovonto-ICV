@@ -6,7 +6,8 @@
     [akiroz.re-frame.storage :refer [reg-co-fx!]]
     [frontend.db :as db]
     [frontend.config :as config]
-    [hcc.innovonto.icv.frontend.annotator.events :as annotator-events]))
+    [hcc.innovonto.icv.frontend.annotator.events :as annotator-events]
+    [clojure.set :as set]))
 
 ;;Local Storage Handling:
 (reg-co-fx! :mturk-icv-app
@@ -63,6 +64,41 @@
        (= (:assignment-id left) (:assignment-id right))
        (= (:project-id left) (:project-id right))))
 
+(reg-event-fx
+  ::batch-request-successful
+  [(rf/inject-cofx :store)]
+  (fn [{:keys [db store]} [_ result]]
+    (let [ideas (:ideas result)
+          batch {:current-idea-index 0 :texts (into [] (map #(set/rename-keys %1 {:content :text}) ideas))}]
+      (println (str "Batch: " batch))
+      {
+       :db    (-> db
+                  (assoc :batch batch)
+                  (assoc :sync-state :up-to-date))
+       :store (-> store
+                  (assoc :batch batch))
+       })))
+
+;;TODO implement failure
+(reg-event-db
+  ::batch-request-failed
+  (fn [db [_ result]]
+    (-> db
+        (assoc :sync-state :up-to-date)
+        (assoc :failure-http-result result))))
+
+(defn batch-request-for [mturk-metadata]
+  {:method          :get
+   :uri             (:annotation-batch config/urlconfig)
+   :params          {:projectId    (:project-id mturk-metadata)
+                     :hitId        (:hit-id mturk-metadata)
+                     :workerId     (:worker-id mturk-metadata)
+                     :assignmentId (:assignment-id mturk-metadata)}
+   :timeout         8000                                    ;; optional see API docs
+   :response-format (ajax/json-response-format {:keywords? true})
+   :on-success      [::batch-request-successful]
+   :on-failure      [::batch-request-failed]})
+
 (defn compare-and-update-mturk-state [db store request-mturk-metadata]
   (let [reload (same-hwap? request-mturk-metadata (:mturk-metadata store))]
     (if reload
@@ -73,16 +109,15 @@
                (assoc :mturk-metadata request-mturk-metadata)
                (assoc :batch (:batch store)))}
       ;;INIT
-      ;;TODO request batch here? eigentlich ja. und am besten mit "loading" indicator.
       {
        :db         (-> db
                        (assoc :active-page :home)
                        (assoc :preview-state :start)
                        (assoc :mturk-metadata request-mturk-metadata))
-       :http-xhrio (project-metadata-request (:project-id request-mturk-metadata))
+       :http-xhrio (batch-request-for request-mturk-metadata)
        ;;Initialize the store:
        :store      {:mturk-metadata request-mturk-metadata
-                    :batch          (:batch db)
+                    ;;TODO loading?
                     }
        })))
 
@@ -118,6 +153,7 @@
   ::set-active-page
   [(rf/inject-cofx :store)]
   (fn [{:keys [db store]} [_ {:keys [page mturk-metadata]}]]
+    ;;TODO read db state from store here? project metadata, mturk metadata, ?
     (let [set-page (assoc db :active-page page)]
       ;(println (str "Calling init logic for: " page))
       (case page

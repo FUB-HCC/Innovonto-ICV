@@ -2,18 +2,8 @@
   (:require [re-frame.core :as rf]
             [frontend.config :as config]
             [day8.re-frame.http-fx]
-            [ajax.core :as ajax]))
-
-;;projectId
-;;hitId
-;;workerId
-;;assignmentId
-;;Fulltext feedback
-;;Clarity Rating
-;;passed attention check?
-;;annotatedIdeas []
-(defn build-batch-result []
-  nil)
+            [ajax.core :as ajax]
+            [clojure.set :as set]))
 
 (rf/reg-fx
   :submit-form
@@ -41,10 +31,14 @@
        })
     ))
 
+(defn to-annotation-submit [result-item]
+  (set/rename-keys result-item {:text :content :result :annotations}))
+
 (defn get-batch-submission-data [db]
   (let [mturk-metadata (:mturk-metadata db)
         results (:texts (:batch db))
         events nil]
+    ;(println (str "Results are: " results))
     {
      :projectId            (:project-id mturk-metadata)
      :hitId                (:hit-id mturk-metadata)
@@ -53,7 +47,7 @@
      :fulltextFeedback     nil
      :clarityRating        0
      :passedAttentionCheck false
-     :annotatedIdeas       results
+     :annotatedIdeas       (into [] (map to-annotation-submit results))
      ;;TODO events
      }))
 

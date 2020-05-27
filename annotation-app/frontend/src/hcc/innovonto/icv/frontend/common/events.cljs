@@ -274,12 +274,14 @@
   (-> resource-candidate
       (dissoc :description)
       (dissoc :thumbnail)
+      (dissoc :id)
       (assoc :selected (is-selected? (get resource-candidate :state "unselected")))
       (set/rename-keys {:token_span :tokenSpan})))
 
 (defn to-annotation [annotation-candidate]
   (-> annotation-candidate
       (set/rename-keys {:token_span :tokenSpan :resource_candidates :resourceCandidates})
+      (dissoc :id)
       (assoc :resourceCandidates (map resource-candidate-to-resource-annotation (:resource_candidates annotation-candidate)))))
 
 (defn to-annotations [annotation-candidates]
