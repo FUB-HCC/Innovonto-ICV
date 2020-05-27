@@ -55,12 +55,12 @@ public class MturkClientRestController {
 
     @ResponseBody
     @GetMapping(value = "/annotation/batch")
-    public AnnotationBatchDTO getAnnotationBatchFor(@RequestParam String ratingProjectId, @RequestParam String hitId, @RequestParam String workerId, @RequestParam String assignmentId) {
+    public AnnotationBatchDTO getAnnotationBatchFor(@RequestParam String projectId, @RequestParam String hitId, @RequestParam String workerId, @RequestParam String assignmentId) {
         if (isBlank(hitId) || isBlank(workerId) || isBlank(assignmentId)) {
             throw new MturkSesssionInformationMissingException("Could not find mturk session information (HWA) on the result object.");
         }
 
-        final Batch batchForCurrentAssignment = batchAllocationService.allocateBatchFor(ratingProjectId, hitId, workerId, assignmentId);
+        final Batch batchForCurrentAssignment = batchAllocationService.allocateBatchFor(projectId, hitId, workerId, assignmentId);
         if (batchForCurrentAssignment instanceof AnnotationBatch) {
             AnnotationBatch annotationBatch = (AnnotationBatch) batchForCurrentAssignment;
             //Get Challenges

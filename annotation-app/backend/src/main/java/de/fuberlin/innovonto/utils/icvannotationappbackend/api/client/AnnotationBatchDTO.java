@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 public class AnnotationBatchDTO {
+    //TODO include project metadata
     private Map<String, Challenge> challenges;
     private List<Idea> ideas;
 
