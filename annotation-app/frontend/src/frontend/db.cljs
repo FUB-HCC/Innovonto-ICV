@@ -14,6 +14,6 @@
                                     }
                  :batch            {
                                     :current-idea-index 0
-                                    :texts              [{:id "b673e422f163a7645a4b5edb01aa302f" :text "A window where you can control how much light gets in by swiping."}
-                                                         {:id "8c5e85472e2c730de9625212496d3fa3" :text "A portable piano"}]
+                                    :texts              [{:id "38aa2640-6efb-49ee-afd7-fb7a786cb406" :text "A window where you can control how much light gets in by swiping."}
+                                                         {:id "54764cfe-83f4-4a16-b9a0-2294019522dc" :text "A portable piano"}]
                                     }})

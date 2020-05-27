@@ -37,6 +37,14 @@ Copyright © 2018 FIXME
 Distributed under the Eclipse Public License either version 1.0 or (at your option) any later version.
 
 ## Notes
+### Getting a mock-batch from the backend:
+
+http://localhost:9500/#/intro?projectId=mockproject&hitId=mockHit&workerId=mockWorker&assignmentId=mockAssignment&turkSubmitTo=http://localhost:9002/api/mturk/externalSubmit
+
+### Getting a batch for the mx-msc-annotation-full-ideas project
+
+http://localhost:9500/#/intro?projectId=mx-msc-annotation-full-ideas&hitId=mockHit&workerId=mockWorker&assignmentId=mockAssignment&turkSubmitTo=http://localhost:9002/api/mturk/externalSubmit
+
 ### Printing the re-frame db from the repl
 
     (require '[clojure.pprint :as p])

@@ -16,3 +16,9 @@
   ::preview-state
   (fn [db _]
     (:preview-state db)))
+
+
+(reg-sub
+  ::mturk-metadata
+  (fn [db _]
+    (:mturk-metadata db)))

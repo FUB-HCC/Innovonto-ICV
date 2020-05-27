@@ -18,6 +18,8 @@
   (fn [_ _]
     db/default-db))
 
+
+
 (defn determine-preview-state [{:keys [project-id hit-id worker-id assignment-id turk-submit-to]}]
   ;; START
   (if (every? some? [project-id hit-id worker-id assignment-id turk-submit-to])
@@ -64,13 +66,14 @@
 (defn compare-and-update-mturk-state [db store request-mturk-metadata]
   (let [reload (same-hwap? request-mturk-metadata (:mturk-metadata store))]
     (if reload
-      ;;RELOAD: leave everything as it was before
-      ;;TODO load the state from local-storage into the db.
+      ;;RELOAD:
       {:db (-> db
                (assoc :active-page :home)
                (assoc :preview-state :reload)
+               (assoc :mturk-metadata request-mturk-metadata)
                (assoc :batch (:batch store)))}
       ;;INIT
+      ;;TODO request batch here? eigentlich ja. und am besten mit "loading" indicator.
       {
        :db         (-> db
                        (assoc :active-page :home)
@@ -83,6 +86,7 @@
                     }
        })))
 
+;;TODO request batch information.
 (defn initialize-home [db mturk-metadata store]
   (let [preview-state (determine-preview-state mturk-metadata)]
     (case preview-state
@@ -115,6 +119,7 @@
   [(rf/inject-cofx :store)]
   (fn [{:keys [db store]} [_ {:keys [page mturk-metadata]}]]
     (let [set-page (assoc db :active-page page)]
+      ;(println (str "Calling init logic for: " page))
       (case page
         :home (initialize-home db mturk-metadata store)
         :annotator {:db set-page :dispatch [::annotator-events/load-icv-for-idea (:current-idea-index (:batch db))]}

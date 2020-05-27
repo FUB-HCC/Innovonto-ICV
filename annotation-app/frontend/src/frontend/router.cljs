@@ -26,13 +26,12 @@
    })
 
 ;;TODO something strange happens with the prefix :/
-;;TODO build something that redirects to the "#/intro" from root.
 (defn setup-app-routes! []
   (secretary/set-config! :prefix "#")
   ;; --------------------
   ;; define routes here
   (defroute "/" [query-params]
-            (dispatch [::events/set-active-page {:page :home :mturk-metadata (get-mturk-metadata query-params)}]))
+            (set! (.-location js/window) "#/intro"))
 
   (defroute "/intro" [query-params]
             (dispatch [::events/set-active-page {:page :home :mturk-metadata (get-mturk-metadata query-params)}]))
