@@ -24,6 +24,8 @@ public class MturkAnnotationSessionResultDTO {
     //Results
     private List<AnnotatedIdeaDTO> annotatedIdeas;
 
+    //TODO events
+
     public MturkAnnotationSessionResultDTO() {
     }
 

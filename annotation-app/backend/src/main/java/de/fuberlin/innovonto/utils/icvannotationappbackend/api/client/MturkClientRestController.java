@@ -85,7 +85,7 @@ public class MturkClientRestController {
             origins = "*",
             allowedHeaders = "*",
             methods = {RequestMethod.GET, RequestMethod.POST})
-    public Submission submitRatingTask(@RequestBody MturkAnnotationSessionResultDTO submissionData) {
+    public Submission submitAnnotationTask(@RequestBody MturkAnnotationSessionResultDTO submissionData) {
         if (submissionData == null || isBlank(submissionData.getHitId()) || isBlank(submissionData.getAssignmentId()) || isBlank(submissionData.getWorkerId())) {
             throw new MturkSesssionInformationMissingException("Could not find mturk session information (HWA) on the submissionData object.");
         }
