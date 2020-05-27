@@ -1,6 +1,7 @@
 (ns frontend.intro.views
   (:require [re-frame.core :as rf]
             [frontend.subs :as subs]
+            [hcc.innovonto.icv.frontend.annotator.subs :as annotator-subs]
             [antizer.reagent :as ant]))
 
 (defn invalid-alert []
@@ -37,11 +38,17 @@
    [:img.img.img-thumbnail {:src "/images/Annotator-Screenshot.png"}]
    [:p "Screenshot of the Annotation Interface"]])
 
+;;TODO include secretary routes instead of strings.
+(defn link-to-annotator-or-survey []
+  (if @(rf/subscribe [::annotator-subs/all-ideas-handled?])
+    "#/thank-you"
+    "#/annotator"))
+
 (defn start-button [preview-state]
   (case preview-state
     :reload [ant/row
              [ant/button {:size "large" :type "primary"}
-              [:a {:href "#/annotator"} "Continue"]]]
+              [:a {:href (link-to-annotator-or-survey)} "Continue"]]]
     [ant/row
      [ant/button {:size "large" :type "primary" :disabled (not= preview-state :start)}
       [:a {:href "#/tutorial"} "Start"]]]))

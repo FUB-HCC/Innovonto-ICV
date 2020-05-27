@@ -3,6 +3,7 @@
             [frontend.subs :as subs]
             [antizer.reagent :as ant]
             [frontend.intro.views :as intro-views]
+            [frontend.survey.views :as survey-views]
             [frontend.annotator.views :as annotator-views]))
 
 (defn footer []
@@ -21,18 +22,12 @@
    [:div
     [:a {:href "#/annotator"} "Go to annotator"]]])
 
-(defn annotator []
-  [:h1 "This is annotator"])
-
-(defn thank-you []
-  [:h1 "Thank you!"])
-
 (defn pages [page-name]
   (case page-name
     :home [intro-views/intro]
     :tutorial [tutorial]
     :annotator [annotator-views/annotator-main]
-    :thank-you [thank-you]
+    :thank-you [survey-views/thank-you]
     [intro-views/intro]))
 
 (defn annotation-app

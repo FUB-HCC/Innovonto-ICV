@@ -61,14 +61,15 @@
        (= (:assignment-id left) (:assignment-id right))
        (= (:project-id left) (:project-id right))))
 
-(defn compare-and-update-mturk-state [db request-mturk-metadata store-mturk-metadata]
-  (let [reload (same-hwap? request-mturk-metadata store-mturk-metadata)]
+(defn compare-and-update-mturk-state [db store request-mturk-metadata]
+  (let [reload (same-hwap? request-mturk-metadata (:mturk-metadata store))]
     (if reload
       ;;RELOAD: leave everything as it was before
       ;;TODO load the state from local-storage into the db.
       {:db (-> db
                (assoc :active-page :home)
-               (assoc :preview-state :reload))}
+               (assoc :preview-state :reload)
+               (assoc :batch (:batch store)))}
       ;;INIT
       {
        :db         (-> db
@@ -76,14 +77,16 @@
                        (assoc :preview-state :start)
                        (assoc :mturk-metadata request-mturk-metadata))
        :http-xhrio (project-metadata-request (:project-id request-mturk-metadata))
-       ;;this deletes the old store:
-       :store      {:mturk-metadata request-mturk-metadata}
+       ;;Initialize the store:
+       :store      {:mturk-metadata request-mturk-metadata
+                    :batch          (:batch db)
+                    }
        })))
 
 (defn initialize-home [db mturk-metadata store]
   (let [preview-state (determine-preview-state mturk-metadata)]
     (case preview-state
-      :start (compare-and-update-mturk-state db mturk-metadata (:mturk-metadata store))
+      :start (compare-and-update-mturk-state db store mturk-metadata)
       :preview {
                 :db         (-> db
                                 (assoc :active-page :home)
@@ -114,6 +117,5 @@
     (let [set-page (assoc db :active-page page)]
       (case page
         :home (initialize-home db mturk-metadata store)
-        ;;TODO instead of load-icv-for-idea 0 i have to do: load next unannotated-idea
-        :annotator {:db set-page :dispatch [::annotator-events/load-icv-for-idea 0]}
+        :annotator {:db set-page :dispatch [::annotator-events/load-icv-for-idea (:current-idea-index (:batch db))]}
         {:db set-page}))))

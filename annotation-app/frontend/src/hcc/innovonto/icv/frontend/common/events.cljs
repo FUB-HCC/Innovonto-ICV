@@ -3,7 +3,8 @@
             [day8.re-frame.http-fx]
             [ajax.core :as ajax]
             [hcc.innovonto.icv.frontend.common.tracking.core :as tracking]
-            [frontend.config :as config]))
+            [frontend.config :as config]
+            [clojure.set :as set]))
 
 (re-frame/reg-event-db
   ::reset
@@ -269,19 +270,17 @@
 (defn is-selected? [state]
   (= state "selected"))
 
-;;TODO refactor!!!
-(defn filter-resource-candidate [resource-candidate]
-  {:text       (:text resource-candidate)
-   :offset     (:offset resource-candidate)
-   :resource   (:resource resource-candidate)
-   :source     (:source resource-candidate)
-   :confidence (:confidence resource-candidate)
-   :selected   (is-selected? (get resource-candidate :state "unselected"))})
+(defn resource-candidate-to-resource-annotation [resource-candidate]
+  (-> resource-candidate
+      (dissoc :description)
+      (dissoc :thumbnail)
+      (assoc :selected (is-selected? (get resource-candidate :state "unselected")))
+      (set/rename-keys {:token_span :tokenSpan})))
 
 (defn to-annotation [annotation-candidate]
-  {:text               (:text annotation-candidate)
-   :offset             (:offset annotation-candidate)
-   :resourceCandidates (into [] (map filter-resource-candidate (:resource_candidates annotation-candidate)))})
+  (-> annotation-candidate
+      (set/rename-keys {:token_span :tokenSpan :resource_candidates :resourceCandidates})
+      (assoc :resourceCandidates (map resource-candidate-to-resource-annotation (:resource_candidates annotation-candidate)))))
 
 (defn to-annotations [annotation-candidates]
   (into [] (map to-annotation annotation-candidates)))

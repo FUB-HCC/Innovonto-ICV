@@ -1,6 +1,6 @@
 # frontend
 
-FIXME: Write a one-line description of your library/project.
+An app to interactively annotate pre-defined texts with semantic annotations.
 
 ## Overview
 
@@ -35,3 +35,9 @@ To create a production build run:
 Copyright © 2018 FIXME
 
 Distributed under the Eclipse Public License either version 1.0 or (at your option) any later version.
+
+## Notes
+### Printing the re-frame db from the repl
+
+    (require '[clojure.pprint :as p])
+    (p/pprint @re-frame.db/app-db)

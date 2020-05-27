@@ -17,7 +17,7 @@
 (re-frame/reg-sub
  ::all-ideas-handled?
  (fn [db]
-   (empty (unhandled-texts (:texts (:batch db))))))
+   (empty? (unhandled-texts (:texts (:batch db))))))
 
 (re-frame/reg-sub
  ::is-last-idea?
