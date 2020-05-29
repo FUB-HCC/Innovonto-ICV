@@ -4,8 +4,18 @@
             [hcc.innovonto.icv.frontend.annotator.subs :as annotator-subs]
             [antizer.reagent :as ant]))
 
+(defn to-error-message [error]
+  (if error
+    (str "The error was: " error ".")
+    ""))
+
 (defn invalid-alert []
-  [ant/alert {:type "warning" :message "Something went wrong with loading the HIT data. Please try to reload your browser window. If the error persists, please contact us via the requester contact interface."}])
+  (let [last-error @(rf/subscribe [::subs/last-error])
+        error-message (to-error-message last-error)]
+    [ant/alert {:type "warning" :message
+                      (str "Something went wrong with loading the HIT data. Please try to reload your browser window."
+                           "If the error persists, please contact us via the requester contact interface. "
+                           error-message)}]))
 
 (defn preview-alert []
   [ant/alert {:type "info" :message "This is the preview page! Please accept the HIT before working on the question! The Ideas here a just examples, you will get different ideas once you accept the hit."}])

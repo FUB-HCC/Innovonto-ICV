@@ -5,6 +5,11 @@
             [ajax.core :as ajax]
             [clojure.set :as set]))
 
+(rf/reg-event-db
+  ::set-fulltext-feedback
+  (fn [db [_ new-value]]
+    (assoc-in db [:survey :fulltext-feedback] new-value)))
+
 (rf/reg-fx
   :submit-form
   (fn [form-id]
@@ -12,24 +17,24 @@
         (.getElementById form-id)
         (.submit))))
 
-;;TODO post request to backend
 ;;Set state to ready?
 (rf/reg-event-fx
   ::annotation-batch-submission-successful
-  (fn [coeffect _]
+  (fn [{:keys [db]} _]
     {
+     :db          (assoc db :sync-state :loading)
      :submit-form "mturkForm"
      }))
 
 (rf/reg-event-fx
   ::annotation-batch-submission-failed
-  (fn [coeffect event]
-    (do
-      (println (str "Annotation Batch Submission failed: " event))
-      {
-       ;TODO how to handle this?
-       })
-    ))
+  (fn [{:keys [db]} event]
+    (println (str "Annotation Batch Submission failed: " event))
+    {
+     :db (-> db
+             (assoc :sync-state :up-to-date)
+             (assoc :last-error (:last-error event)))
+     }))
 
 (defn to-annotation-submit [result-item]
   (set/rename-keys result-item {:text :content :result :annotations}))
@@ -37,31 +42,29 @@
 (defn get-batch-submission-data [db]
   (let [mturk-metadata (:mturk-metadata db)
         results (:texts (:batch db))
-        events nil]
-    ;(println (str "Results are: " results))
+        events (:events db)]
     {
      :projectId            (:project-id mturk-metadata)
      :hitId                (:hit-id mturk-metadata)
      :workerId             (:worker-id mturk-metadata)
      :assignmentId         (:assignment-id mturk-metadata)
-     :fulltextFeedback     nil
-     :clarityRating        0
-     :passedAttentionCheck false
+     :fulltextFeedback     (:fulltext-feedback (:survey db))
+     :clarityRating        (:clarity-rating (:survey db))
+     ;;TODO implement attention-check logic.
+     :passedAttentionCheck true
      :annotatedIdeas       (into [] (map to-annotation-submit results))
-     ;;TODO events
+     :events               events
      }))
 
 (rf/reg-event-fx
   ::annotation-batch-submit
   (fn [{:keys [db]}]
-    (do
-      (println "Annotation Batch Submit!")
-      {
-       ;;TODO set db state to loading.
-       :http-xhrio {:method          :post
-                    :uri             (:submit config/urlconfig)
-                    :format          (ajax/json-request-format)
-                    :response-format (ajax/json-response-format {:keywords? true})
-                    :params          (get-batch-submission-data db)
-                    :on-success      [::annotation-batch-submission-successful]
-                    :on-failure      [::annotation-batch-submission-failed]}})))
+    {
+     :db         (assoc db :sync-state :loading)
+     :http-xhrio {:method          :post
+                  :uri             (:submit config/urlconfig)
+                  :format          (ajax/json-request-format)
+                  :response-format (ajax/json-response-format {:keywords? true})
+                  :params          (get-batch-submission-data db)
+                  :on-success      [::annotation-batch-submission-successful]
+                  :on-failure      [::annotation-batch-submission-failed]}}))

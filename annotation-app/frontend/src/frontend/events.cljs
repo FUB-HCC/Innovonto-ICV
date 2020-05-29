@@ -7,19 +7,26 @@
     [frontend.db :as db]
     [frontend.config :as config]
     [hcc.innovonto.icv.frontend.annotator.events :as annotator-events]
-    [clojure.set :as set]))
+    [clojure.set :as set]
+    [clojure.string :as string]))
 
 ;;Local Storage Handling:
 (reg-co-fx! :mturk-icv-app
             {:fx   :store
              :cofx :store})
 
-(reg-event-db
+(reg-event-fx
   ::initialize-db
-  (fn [_ _]
-    db/default-db))
-
-
+  [(rf/inject-cofx :store)]
+  (fn [{:keys [_ store]} _]
+    {:db (-> db/default-db
+             (assoc :mturk-metadata (:mturk-metadata store))
+             (assoc :batch (:batch store))
+             ;TODO project metadata?
+             ;TODO icv?
+             ;TODO tracking events?
+             ;TODO survey?
+             )}))
 
 (defn determine-preview-state [{:keys [project-id hit-id worker-id assignment-id turk-submit-to]}]
   ;; START
@@ -70,10 +77,13 @@
   (fn [{:keys [db store]} [_ result]]
     (let [ideas (:ideas result)
           batch {:current-idea-index 0 :texts (into [] (map #(set/rename-keys %1 {:content :text}) ideas))}]
-      (println (str "Batch: " batch))
       {
        :db    (-> db
                   (assoc :batch batch)
+                  (assoc :project-metadata {
+                                            :batch-size                (get result :batchSize)
+                                            :compensation              (get result :compensation)
+                                            :estimated-time-in-minutes (get result :estimatedTimeInMinutes)})
                   (assoc :sync-state :up-to-date))
        :store (-> store
                   (assoc :batch batch))
@@ -99,33 +109,41 @@
    :on-success      [::batch-request-successful]
    :on-failure      [::batch-request-failed]})
 
-(defn compare-and-update-mturk-state [db store request-mturk-metadata]
-  (let [reload (same-hwap? request-mturk-metadata (:mturk-metadata store))]
+(defn compare-and-update-mturk-state [db request-mturk-metadata]
+  (let [reload (same-hwap? request-mturk-metadata (:mturk-metadata db))]
     (if reload
       ;;RELOAD:
       {:db (-> db
                (assoc :active-page :home)
-               (assoc :preview-state :reload)
-               (assoc :mturk-metadata request-mturk-metadata)
-               (assoc :batch (:batch store)))}
+               (assoc :preview-state :reload))}
       ;;INIT
       {
        :db         (-> db
+                       (assoc :sync-state :loading)
                        (assoc :active-page :home)
                        (assoc :preview-state :start)
-                       (assoc :mturk-metadata request-mturk-metadata))
+                       (assoc :mturk-metadata request-mturk-metadata)
+                       ;;TODO Clear old stuff
+                       )
        :http-xhrio (batch-request-for request-mturk-metadata)
-       ;;Initialize the store:
-       :store      {:mturk-metadata request-mturk-metadata
-                    ;;TODO loading?
-                    }
+       ;;Initialize the store: This overwrites the old store state:
+       :store      {:mturk-metadata request-mturk-metadata}
        })))
 
-;;TODO request batch information.
-(defn initialize-home [db mturk-metadata store]
-  (let [preview-state (determine-preview-state mturk-metadata)]
+(defn check-empty [[key value]]
+  (if (string/blank? value)
+    (str "Could not determine " (name key))
+    ""))
+
+(defn validate-hwap [mturk-metadata]
+  (let [error-messages (map check-empty (seq mturk-metadata))]
+    (string/trim (string/join ", " error-messages))))
+
+(defn initialize-home [db mturk-metadata]
+  (let [preview-state (determine-preview-state mturk-metadata)
+        preview-state-error-message (validate-hwap mturk-metadata)]
     (case preview-state
-      :start (compare-and-update-mturk-state db store mturk-metadata)
+      :start (compare-and-update-mturk-state db mturk-metadata)
       :preview {
                 :db         (-> db
                                 (assoc :active-page :home)
@@ -143,7 +161,8 @@
                 ;;TODO remove project-metadata?
                 :db (-> db
                         (assoc :active-page :home)
-                        (assoc :preview-state preview-state))
+                        (assoc :preview-state preview-state)
+                        (assoc :last-error preview-state-error-message))
                 })))
 
 ;; usage: (dispatch [:set-active-page {:page :home})
@@ -151,12 +170,10 @@
 ;; TODO can i somehow set the req-mturk-metadata before this?
 (reg-event-fx
   ::set-active-page
-  [(rf/inject-cofx :store)]
-  (fn [{:keys [db store]} [_ {:keys [page mturk-metadata]}]]
-    ;;TODO read db state from store here? project metadata, mturk metadata, ?
+  (fn [{:keys [db]} [_ {:keys [page mturk-metadata]}]]
     (let [set-page (assoc db :active-page page)]
       ;(println (str "Calling init logic for: " page))
       (case page
-        :home (initialize-home db mturk-metadata store)
+        :home (initialize-home db mturk-metadata)
         :annotator {:db set-page :dispatch [::annotator-events/load-icv-for-idea (:current-idea-index (:batch db))]}
         {:db set-page}))))

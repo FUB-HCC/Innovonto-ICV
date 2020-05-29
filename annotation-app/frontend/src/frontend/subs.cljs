@@ -17,6 +17,11 @@
   (fn [db _]
     (:preview-state db)))
 
+(reg-sub
+  ::last-error
+  (fn [db _]
+    (:last-error db)))
+
 
 (reg-sub
   ::mturk-metadata

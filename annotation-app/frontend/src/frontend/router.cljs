@@ -15,8 +15,8 @@
         (secretary/dispatch! (.-token event))))
     (.setEnabled true)))
 
+;;TODO set/rename keys?
 (defn get-mturk-metadata [query-params]
-  (println "Query Params: " (str query-params))
   {
    :project-id     (:projectId query-params)
    :hit-id         (:hitId query-params)

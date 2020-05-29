@@ -163,6 +163,7 @@
       (update-in db [:icv] assoc :state "error"))))
 
 ;;EVENTS
+; TODO tracking here?
 (re-frame/reg-event-fx
   ::annotate-request
   (fn [{:keys [db]} [_ input-text]]
@@ -196,7 +197,7 @@
   ::select-annotation-candidate
   (fn [db [_ id]]
     (do
-      (println (str "Selected Annotation Candidate " id))
+      ;(println (str "Selected Annotation Candidate " id))
       (assoc db :icv (set-current-annotation-candidate-to (:icv db) id)))))
 
 (re-frame/reg-event-db
@@ -204,7 +205,6 @@
   (fn [db _]
     (let [next-unvalidated-candidate (next-unvalidated-annotation-candidate (:annotation-candidates (:icv db)))
           id (:id next-unvalidated-candidate)]
-      (println "move to next annotation-candidate")
       (if next-unvalidated-candidate
         (assoc db :icv (set-current-annotation-candidate-to (:icv db) id))
         (update-in db [:icv] assoc :state "ALL-ANNOTATED")))))
@@ -213,7 +213,7 @@
   ::submit-validated-resource-candidates
   (fn [{:keys [db]} [_ id]]
     (do
-      (println "submit-validated-resource-candidates" id)
+      ;(println "submit-validated-resource-candidates" id)
       {:db         (update-in db [:icv :annotation-candidates] assoc id (assoc (:current-annotation-candidate (:icv db)) :state "validated"))
        :dispatch-n [[::tracking/track {:type :validate-annotation-candidate
                                        :id   id
@@ -224,7 +224,7 @@
   ::reject-annotation-candidate
   (fn [{:keys [db]} [_ id]]
     (do
-      (println "reject-annotation-candidate" id)
+      ;(println "reject-annotation-candidate" id)
       {:db         (update-in db [:icv :annotation-candidates] assoc id (assoc (:current-annotation-candidate (:icv db)) :state "rejected"))
        :dispatch-n [[::tracking/track {:type :reject-annotation-candidate
                                        :id   id
@@ -236,7 +236,7 @@
   ::deselect-resource-candidate
   (fn [{:keys [db]} [_ id]]
     (let [resource-candidate (nth (:resource_candidates (:current-annotation-candidate (:icv db))) id)]
-      (println "deselect-resource-candidate!" id)
+      ;(println "deselect-resource-candidate!" id)
       {:db       (update-in db [:icv :current-annotation-candidate :resource_candidates] assoc id (dissoc resource-candidate :state))
        :dispatch [::tracking/track {:type     :deselect-resource-candidate
                                     :id       id

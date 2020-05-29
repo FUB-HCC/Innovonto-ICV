@@ -17,6 +17,7 @@
 (defn was-last-submit? [current-idea-index ideas]
   (= current-idea-index (- (count ideas) 1)))
 
+;;TODO tracking event instead of println
 (rf/reg-event-fx
   ::save-concept-validation-successful
   (fn [{:keys [db]} _]
@@ -50,7 +51,7 @@
   (fn [{:keys [db store]} [_ text-index]]
     (let [idea (get (:texts (:batch db)) text-index)]
       (do
-        (println (str "Loading ICV for Idea: " idea))
+        ;;(println (str "Loading ICV for Idea: " idea))
         {:db       (-> db
                        (assoc :sync-state :loading)
                        (assoc-in [:batch :current-idea-index] text-index))
