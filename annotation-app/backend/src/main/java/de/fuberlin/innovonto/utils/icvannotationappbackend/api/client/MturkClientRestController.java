@@ -59,7 +59,6 @@ public class MturkClientRestController {
         if (isBlank(hitId) || isBlank(workerId) || isBlank(assignmentId)) {
             throw new MturkSesssionInformationMissingException("Could not find mturk session information (HWA) on the result object.");
         }
-
         final Batch batchForCurrentAssignment = batchAllocationService.allocateBatchFor(projectId, hitId, workerId, assignmentId);
         if (batchForCurrentAssignment instanceof AnnotationBatch) {
             AnnotationBatch annotationBatch = (AnnotationBatch) batchForCurrentAssignment;
@@ -73,8 +72,10 @@ public class MturkClientRestController {
                 Challenge value = challengeRepository.findById(challengeId).get();
                 challenges.put(value.getId(), value);
             }
-            //TODO shuffle (but only if it's a new and not reloaded batch)
-            return new AnnotationBatchDTO(challenges, annotationBatch.getIdeas());
+            //TODO shuffle (but only if it's a new and not reloaded batch)?
+            final Optional<AnnotationProject> byId = projectService.findById(projectId);
+            final AnnotationProject currentProject = byId.get();
+            return new AnnotationBatchDTO(challenges, annotationBatch.getIdeas(), currentProject.getEstimatedTimeInMinutes(), currentProject.getCompensation(), currentProject.getBatchSize());
         } else {
             throw new IllegalStateException("Tried to allocate a batch for a project, where the project does not match the allocation type");
         }
