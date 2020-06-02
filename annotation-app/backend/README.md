@@ -42,3 +42,10 @@ The Debug Config for it is:
 ## Deployment
 
     ./gradlew jib
+
+## Frontend
+Testing the frontend pages:
+
+http://localhost:9002/index.html#/intro?projectId=mockproject&hitId=mockHit&workerId=mockWorker&assignmentId=mockAssignment&turkSubmitTo=http://localhost:9002/api/mturk/externalSubmit
+
+http://localhost:9002/index.html#/intro?projectId=mx-msc-annotation-full-ideas&hitId=mockHit&workerId=mockWorker&assignmentId=mockAssignment&turkSubmitTo=http://localhost:9002/api/mturk/externalSubmit
