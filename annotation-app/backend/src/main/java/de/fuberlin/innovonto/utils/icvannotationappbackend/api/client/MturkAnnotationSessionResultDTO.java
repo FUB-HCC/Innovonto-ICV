@@ -24,7 +24,7 @@ public class MturkAnnotationSessionResultDTO {
     //Results
     private List<AnnotatedIdeaDTO> annotatedIdeas;
 
-    //TODO events
+    private List<TrackingEventDTO> trackingEvents;
 
     public MturkAnnotationSessionResultDTO() {
     }
@@ -91,5 +91,13 @@ public class MturkAnnotationSessionResultDTO {
 
     public void setAnnotatedIdeas(List<AnnotatedIdeaDTO> annotatedIdeas) {
         this.annotatedIdeas = annotatedIdeas;
+    }
+
+    public List<TrackingEventDTO> getTrackingEvents() {
+        return trackingEvents;
+    }
+
+    public void setTrackingEvents(List<TrackingEventDTO> trackingEvents) {
+        this.trackingEvents = trackingEvents;
     }
 }

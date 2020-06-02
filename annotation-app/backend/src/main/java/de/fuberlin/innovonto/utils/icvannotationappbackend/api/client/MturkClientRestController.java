@@ -45,6 +45,7 @@ public class MturkClientRestController {
     @ResponseBody
     @GetMapping(value = "/projectMetadata")
     public AnnotationProject getProjectMetadata(@RequestParam String projectId) {
+        log.info("get Project Metadata for: " + projectId);
         Optional<AnnotationProject> byId = projectService.findById(projectId);
         if (byId.isEmpty()) {
             throw new IllegalArgumentException("No project for id: " + projectId);
@@ -59,6 +60,7 @@ public class MturkClientRestController {
         if (isBlank(hitId) || isBlank(workerId) || isBlank(assignmentId)) {
             throw new MturkSesssionInformationMissingException("Could not find mturk session information (HWA) on the result object.");
         }
+        log.info("Allocating Batch for: (" + hitId + "|" + workerId + "|" + assignmentId + "):" + projectId);
         final Batch batchForCurrentAssignment = batchAllocationService.allocateBatchFor(projectId, hitId, workerId, assignmentId);
         if (batchForCurrentAssignment instanceof AnnotationBatch) {
             AnnotationBatch annotationBatch = (AnnotationBatch) batchForCurrentAssignment;
@@ -90,6 +92,10 @@ public class MturkClientRestController {
         if (submissionData == null || isBlank(submissionData.getHitId()) || isBlank(submissionData.getAssignmentId()) || isBlank(submissionData.getWorkerId())) {
             throw new MturkSesssionInformationMissingException("Could not find mturk session information (HWA) on the submissionData object.");
         }
+        log.info("Received Submission for: (" + submissionData.getHitId() + "|"
+                + submissionData.getWorkerId()
+                + "|"
+                + submissionData.getAssignmentId() + "):" + submissionData.getProjectId());
         final MturkAnnotationSession submission = new MturkAnnotationSession();
         submission.setHitId(submissionData.getHitId());
         submission.setWorkerId(submissionData.getWorkerId());
@@ -99,6 +105,7 @@ public class MturkClientRestController {
         submission.setAnnotatedIdeas(getAnnotatedIdeasFrom(submissionData));
         submission.setFulltextFeedback(submissionData.getFulltextFeedback());
         submission.setClarityRating(submissionData.getClarityRating());
+        //TODO save events.
         return submissionResultService.updateProjectAndBatchAndSave(submission);
     }
 
