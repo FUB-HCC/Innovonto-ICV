@@ -20,7 +20,7 @@
 (defn thank-you []
   (let [mturk-metadata @(rf/subscribe [::subs/mturk-metadata])
         results @(rf/subscribe [::survey-subs/results])
-        events @(rf/subscribe [::survey-subs/events])]
+        tracking-events @(rf/subscribe [::survey-subs/tracking-events])]
     [:div
      [:h1 "Thank you!"]
      [:div
@@ -30,18 +30,19 @@
       [:input {:type "hidden" :name "workerId" :value (:worker-id mturk-metadata)}]
       [:input {:type "hidden" :name "assignmentId" :value (:assignment-id mturk-metadata)}]
       [:input {:type "hidden" :name "projectId" :value (:project-id mturk-metadata)}]
+      [:input {:type "hidden" :name "clarity-rating" :value @(rf/subscribe [::survey-subs/clarity-rating])}]
       [:input {:type "hidden" :name "results" :value (clj->json results)}]
-      [:input {:type "hidden" :name "events" :value (clj->json events)}]
+      [:input {:type "hidden" :name "tracking-events" :value (clj->json tracking-events)}]
       ;TODO required
       [ant/form-item
        [:p "How clear was the HIT?"]
-       ;;TODO the labeled slider needs styling.
-       [:div.labeled-slider
-        [:span "Very Unclear"]
-        [ant/slider {:min       -2 :max 2
-                     :value     @(rf/subscribe [::survey-subs/clarity-rating])
-                     :on-change #(rf/dispatch [::events/set-clarity-rating (-> % .-target .-value)])}]
-        [:span "Very Clear"]]]
+       [ant/row
+        [ant/col {:span 3 :class "centered"} [:span "Very Unclear"]]
+        [ant/col {:span 10}
+         [ant/slider {:min       -2 :max 2
+                      :value     @(rf/subscribe [::survey-subs/clarity-rating])
+                      :on-change #(rf/dispatch [::events/set-clarity-rating %])}]]
+        [ant/col {:span 3 :class "centered"} [:span "Very Clear"]]]]
       [ant/form-item
        [:p "We try to provide the best possible user experience, so it's always valuable to get feedback. If you
                     have some

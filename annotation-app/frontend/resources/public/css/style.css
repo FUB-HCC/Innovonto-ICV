@@ -202,3 +202,8 @@ body {
     -o-transition: all .2s ease-in-out;
     transition: all .2s ease-in-out;
 }
+
+/* Survey slider */
+.centered {
+    text-align: center;
+}

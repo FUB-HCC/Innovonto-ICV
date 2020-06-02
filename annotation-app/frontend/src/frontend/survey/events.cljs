@@ -6,6 +6,11 @@
             [clojure.set :as set]))
 
 (rf/reg-event-db
+  ::set-clarity-rating
+  (fn [db [_ new-value]]
+    (assoc-in db [:survey :clarity-rating] new-value)))
+
+(rf/reg-event-db
   ::set-fulltext-feedback
   (fn [db [_ new-value]]
     (assoc-in db [:survey :fulltext-feedback] new-value)))
@@ -42,7 +47,7 @@
 (defn get-batch-submission-data [db]
   (let [mturk-metadata (:mturk-metadata db)
         results (:texts (:batch db))
-        events (:events db)]
+        events (:tracking-events db)]
     {
      :projectId            (:project-id mturk-metadata)
      :hitId                (:hit-id mturk-metadata)
@@ -53,7 +58,7 @@
      ;;TODO implement attention-check logic.
      :passedAttentionCheck true
      :annotatedIdeas       (into [] (map to-annotation-submit results))
-     :events               events
+     :trackingEvents               events
      }))
 
 (rf/reg-event-fx

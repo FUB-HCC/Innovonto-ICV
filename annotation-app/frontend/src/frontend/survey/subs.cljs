@@ -17,6 +17,6 @@
     (:texts (:batch db))))
 
 (rf/reg-sub
-  ::events
+  ::tracking-events
   (fn [db _]
-    (:events db)))
+    (:tracking-events db)))
