@@ -45,7 +45,7 @@
 
 (defn task-screenshot []
   [:div.screenshot-container
-   [:img.img.img-thumbnail {:src "/images/Annotator-Screenshot.png"}]
+   [:img.img.img-thumbnail {:src "/images/annotator-screenshot.png"}]
    [:p "Screenshot of the Annotation Interface"]])
 
 ;;TODO include secretary routes instead of strings.

@@ -53,15 +53,3 @@
                              :value       @(rf/subscribe [::survey-subs/fulltext-feedback])
                              :on-change   #(rf/dispatch [::events/set-fulltext-feedback (-> % .-target .-value)])}]]
       [ant/button {:html-type "submit" :type "primary" :size "large"} "Submit!"]]]))
-
-; TODO data that needs to be submitted:
-; Mturk metadata: HWAP
-; Annotation results
-; Tracking events
-
-;  complexSubmit (): void {
-;    vxm.ideaModule.submitRatingData().then(() => {
-;      this.submittedToOwnServer = true
-;    })
-;  }
-

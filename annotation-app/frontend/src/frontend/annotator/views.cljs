@@ -9,7 +9,7 @@
             [hcc.innovonto.icv.frontend.annotator.config :as config]))
 
 (defn annotation-progress-bar []
-  (let [handled-ideas   @(rf/subscribe [::subs/number-handled])
+  (let [handled-ideas @(rf/subscribe [::subs/number-handled])
         unhandled-ideas @(rf/subscribe [::subs/number-unhandled])
         percentage-done @(rf/subscribe [::subs/percentage-done])]
     [:div
@@ -25,9 +25,9 @@
      {:title (reagent/as-element [:span [ant/icon {:type "check-circle-o"}] "Validation"])
       :type  "inner"}
      (case component-state
-       "INITIAL"       [:div "Loading first idea text, please wait..."]
-       "LOADING"       [ant/spin {:class-name "spin-centered"}]
-       "ANNOTATING"    [icv/select-resource-candidate-menu]
+       "INITIAL" [:div "Loading first idea text, please wait..."]
+       "LOADING" [ant/spin {:class-name "spin-centered"}]
+       "ANNOTATING" [icv/select-resource-candidate-menu]
        "ALL-ANNOTATED" [:div "Everything is annotated. Please click submit"]
        [:p "There was an error on the server! Please reset the panel and try again."])]))
 
@@ -60,14 +60,14 @@
      {:title (reagent/as-element [:span [ant/icon {:type "form"}] "Idea Text"])
       :type  "inner"}
      (case (:state icv)
-       "LOADING"       [ant/spin {:class-name "annotated-text-container-loading spin-centered"}]
-       "ANNOTATING"    [annotation-panel]
+       "LOADING" [ant/spin {:class-name "annotated-text-container-loading spin-centered"}]
+       "ANNOTATING" [annotation-panel]
        "ALL-ANNOTATED" [annotation-panel]
        [annotation-panel-error-state])]))
 
 (defn annotation-submit-button []
   (let [is-last-idea @(rf/subscribe [::subs/is-last-idea?])
-        sync-state   @(rf/subscribe [::subs/sync-state])]
+        sync-state @(rf/subscribe [::subs/sync-state])]
     (if is-last-idea
       [ant/button
        {:html-type "submit"
@@ -90,32 +90,35 @@
         :on-click  #(rf/dispatch [::events/submit-concept-validation])}
        "Submit"])))
 
-;;TODO loading
+(defn challenge-details-for-current-idea []
+  (let [current-challenge @(rf/subscribe [::subs/current-challenge])]
+    (if (:description current-challenge)
+      [:p
+       [:small "The idea was generated for the challenge: "
+        [:span
+         (:description current-challenge)]]]
+      [:span " "])))
+
 (defn annotator-main []
   [:div
-    [ant/row
-     {:gutter 20}
-     [ant/col
-      {:span 13}
-      [:div
-       [:h2.banner-header "Idea Concept Validation"]
-       [:p "Please select the most appropriate concepts for the idea text below."]
-       ;;TODO make configurable
-       [:p
-        [:small
-         "The idea was generated for the challenge: "
-         [:span
-          "Imagine you could have a coating that could turn every surface into a touch display. Brainstorm cool products, systems, gadgets or services that could be build with it."]]]]]
-     [ant/col {:span 11}
-      [annotation-progress-bar]]]
-    [ant/row
-     {:gutter 20}
-     [ant/col {:span 13}
-      [icv-input-text-panel]]
-     [ant/col {:span 11}
-      [concept-validation-panel]]]
-    [ant/row
-     {:class-name "submit-button-row"}
-     [ant/col
-      {:span 4 :offset 10}
-      [annotation-submit-button]]]])
+   [ant/row
+    {:gutter 20}
+    [ant/col
+     {:span 13}
+     [:div
+      [:h2.banner-header "Idea Concept Validation"]
+      [:p "Please select the most appropriate concepts for the idea text below."]
+      [challenge-details-for-current-idea]]]
+    [ant/col {:span 11}
+     [annotation-progress-bar]]]
+   [ant/row
+    {:gutter 20}
+    [ant/col {:span 13}
+     [icv-input-text-panel]]
+    [ant/col {:span 11}
+     [concept-validation-panel]]]
+   [ant/row
+    {:class-name "submit-button-row"}
+    [ant/col
+     {:span 4 :offset 10}
+     [annotation-submit-button]]]])

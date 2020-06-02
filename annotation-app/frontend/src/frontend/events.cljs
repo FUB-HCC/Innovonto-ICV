@@ -76,7 +76,9 @@
   [(rf/inject-cofx :store)]
   (fn [{:keys [db store]} [_ result]]
     (let [ideas (:ideas result)
-          batch {:current-idea-index 0 :texts (into [] (map #(set/rename-keys %1 {:content :text}) ideas))}]
+          batch {:current-idea-index 0
+                 :texts              (into [] (map #(set/rename-keys %1 {:content :text}) ideas))
+                 :challenges         (:challenges result)}]
       {
        :db    (-> db
                   (assoc :batch batch)
