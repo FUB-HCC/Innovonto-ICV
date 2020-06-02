@@ -13,7 +13,7 @@ def registry = "git.imp.fu-berlin.de:5000"
 
 jib {
     to {
-        image = registry + "/ideas-to-market/innovonto-parent/" + "idea-similarity-app"
+        image = registry + "/ideas-to-market/innovonto-parent/" + "idea-annotation-app"
         //TODO think about: jib.to.image = 'gcr.io/my-gcp-project/my-app:' + System.nanoTime()
         tags = ['latest']
     }
